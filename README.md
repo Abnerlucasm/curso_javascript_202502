@@ -54,4 +54,4 @@
 - Consumindo APIs
 
 ### 03/10/2025 - 9a aula
-- Avaliação Final
+- Avaliação Final.
