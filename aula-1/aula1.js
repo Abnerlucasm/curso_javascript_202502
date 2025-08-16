@@ -4,4 +4,4 @@ let resultado = numero + numero1
 
 console.log(resultado)
 
-s
+
