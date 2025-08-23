@@ -4,6 +4,10 @@ Este material reúne links e orientações para auxiliar em tarefas comuns do di
 
 ---
 
+### IDE VS Code Online
+
+Link: https://vscode.dev/?vscode-lang=pt-br
+
 ### 🔧 Comandos Git
 
 Git é uma ferramenta essencial para controle de versão. Abaixo, um repositório com os principais comandos para consulta rápida:
@@ -19,8 +23,8 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 > ```
 >
 
-<video src="https://raw.githubusercontent.com/Abnerlucasm/curso_javascript_202502/master/Ajuda/assets/copiar-path-completo.gif" autoplay loop muted playsinline width="400">
-</video>
+<img src="https://raw.githubusercontent.com/Abnerlucasm/curso_javascript_202502/master/Ajuda/assets/copiar-path-completo.gif" width="400">
+</img>
 
 ---
 
