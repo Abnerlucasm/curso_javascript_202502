@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>2ª Aula</title>
+</head>
+<body>
+	<h1>2ª Aula</h1>
+	<h1>Exercícios</h1>
+
+	<!-- Exercício 1 -->
+	<p>Exercício 1: Some os valores dos dois campos abaixo</p>
+	Dica: Use "parseFloat" para converter os valores de string para número.
+	<br>
+	<input type="number" id="valor1" placeholder="Número 1">
+	<input type="number" id="valor2" placeholder="Número 2">
+	<button onclick="somar()">Resultado</button>
+
+	<!-- Exercício 2 -->
+	<p>Exemplo 2: Faça uma função que logue um número crescente a cada vez que o botão abaixo for apertado (1,2,3,4,5...)</p>
+	<button onclick="contador()">Contador</button>
+
+	<!-- Exercício 3 -->
+	<p style="color:orangered">Exemplo 3 (Extra): Imprima no console (ou na tela) se o número é par ou ímpar ao apertar o botão</p>
+	<input type="number" id="valor3" placeholder="Número 3">
+	<button onclick="parOuImpar()">Resultado</button>
+
+	<!-- Exercício 4 (Desafio) -->
+	<p style="color:red">DESAFIO: Imprima "Hello World" na tela, e a cada vez que ele for clicado a partir da primeira, alterar entre duas cores à sua escolha</p>
+	<button onclick="helloWorld()">The End of the Fucking World</button>
+	<h1 id="HelloWorld"></h1>
+
+	<script>
+		// Exercício 1: Somar dois valores
+		function somar() {
+			const v1 = parseFloat(document.getElementById('valor1').value);
+			const v2 = parseFloat(document.getElementById('valor2').value);
+			const resultado = v1 + v2;
+			console.log("Resultado da soma:", resultado);
+			alert("Resultado: " + resultado);
+		}
+
+		// Exercício 2: Contador crescente
+		let count = 0;
+		function contador() {
+			count++;
+			console.log(count);
+			alert("Contador: " + count);
+		}
+
+		// Exercício 3: Verifica se o número é par ou ímpar
+		function parOuImpar() {
+			const numero = parseFloat(document.getElementById('valor3').value);
+			if (isNaN(numero)) {
+				console.log("Digite um número válido");
+				alert("Digite um número válido");
+				return;
+			}
+			if (numero % 2 === 0) {
+				console.log(numero + " é PAR");
+				alert(numero + " é PAR");
+			} else {
+				console.log(numero + " é ÍMPAR");
+				alert(numero + " é ÍMPAR");
+			}
+		}
+
+		// Exercício 4 (Desafio): Hello World com alternância de cores
+		let helloClicado = false;
+		let corAtiva = false;
+
+		function helloWorld() {
+			const elemento = document.getElementById('HelloWorld');
+			if (!helloClicado) {
+				elemento.innerText = "Hello World";
+				elemento.style.color = "blue";
+				helloClicado = true;
+			} else {
+				corAtiva = !corAtiva;
+				elemento.style.color = corAtiva ? "green" : "purple";
+			}
+		}
+	</script>
+</body>
+</html>
