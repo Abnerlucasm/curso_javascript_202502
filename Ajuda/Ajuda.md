@@ -18,7 +18,9 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 > git checkout origin/main -- caminho/arquivo.sql
 > ```
 >
-<img src="https://raw.githubusercontent.com/Abnerlucasm/curso_javascript_202502/master/Ajuda/assets/copiar-path-completo.gif" width="400" height="400">
+
+<video src="https://raw.githubusercontent.com/Abnerlucasm/curso_javascript_202502/master/Ajuda/assets/copiar-path-completo.gif" autoplay loop muted playsinline width="400">
+</video>
 
 ---
 
@@ -44,6 +46,8 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 - [Documentação JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Roadmap Javascript em Inglês](https://roadmap.sh/pdfs/roadmaps/javascript.pdf)
 - [Roadmap javascript em Português](https://jeffbruchado.com.br/blog/roadmap-javascript-tudo-o-que-voce-precisa-aprender)
+- [Noções Básicas JS](https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)
+- [Guia JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide)
 ---
 
 
