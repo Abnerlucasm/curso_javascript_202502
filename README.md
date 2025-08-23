@@ -2,45 +2,45 @@
 
 ## Plano de Ensino
 
-### 08/08/2025 - [1a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-1)
+### 15/08/2025 - [1a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-1)
 - Sintaxe
 - Variáveis 
 - Tipos
 - Operadores
 
-### 15/08/2025 - [2a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-2)
+### 22/08/2025 - [2a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-2)
 - Estruturas de controle
 - Condicionais
 - Repetições
 - Operador Ternário
 
-### 22/08/2025 - [3a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-3)
+### 29/08/2025 - [3a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-3)
 - Funções
 - Declaração
 - Parâmetros e retorno
 - Funções anônimas
 - Arrow functions
 
-### 29/08/2025 - [4a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-4)
+### 05/09/2025 - [4a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-4)
 - Objetos
 - Criação e manipulação
 - Métodos
 - Arrays
 
-### 05/09/2025 - [5a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-5)
+### 12/09/2025 - [5a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-5)
 - DOM (Document Object Model)
 - O que é DOM
 - Seletores
 - Criar e modificar elementos
 
-### 12/09/2025 - [6a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-6)
+### 19/09/2025 - [6a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-6)
 - AJAX
 - Tipos de eventos
 - Adição de eventos
 - Requisições
 - Promessas
 
-### 19/09/2025 - [7a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-7)
+### 26/09/2025 - [7a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-7)
 - Frameworks JavaScript
 - Por que usar?
 - React
@@ -52,10 +52,10 @@
 - - Estrutura de front-end
 - - Consumindo APIs
 
-### 26/09/2025 - [8a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-8)
+### 03/10/2025 - [8a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-8)
 - Conclusão e correção dos exercícios da 7ª Aula
 - Recapitulação dos conteúdos
 - Auxilio com dúvidas
 
-### 03/10/2025 - 9a aula
+### 10/10/2025 - 9a aula
 - Avaliação Final
