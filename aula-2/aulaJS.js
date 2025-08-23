@@ -1,5 +1,9 @@
-function mudarTexto() {
-    const h1 = document.getElementById("h1");
-    h1.innerText = "Olá mundo! Tudo bem?";
-    h1.style.color = "red";
+function MudaCor(){
+    const elemento = document.getElementById('titulo')
+
+    elemento.style.color = 'red'
+    
+    const input = document.getElementById('texto')
+    console.log("Meu nome é: ",input.value);
+    elemento.innerText = "Meu nome é: "+ input.value
 }

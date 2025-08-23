@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>2ª Aula</title>
+	</head>
+	<body>
+		<h1>2ª Aula</h1>
+		<h1>Exercícios</h1>
+
+		<p>Exercício 1: Some os valores dos dois campos abaixo</p>
+		Dica: Use "parseFloat" para converter os valores de string para número.
+		<br>
+		<input type="number" id="valor1" placeholder="Número 1">
+		<input type="number" id="valor2" placeholder="Número 2">
+		<h3 id = "resultado1"></h3>
+		<button onclick="somar()">Clique aqui 1</button>
+		<hr>
+
+		<p>Exemplo 2: Faça uma função que logue um número crescente a cada vez que o botão abaixo for apertado (1,2,3,4,5...)</p>
+		<h3 id = "aumentaNum">0</h3>		
+		<button onclick="crescente()">Clique aqui 2</button>	
+		<hr>
+		
+		<p style="color:rgb(0, 0, 0)">Exemplo 3(Extra): Iprima no console (ou na tela) se o número é par ou ímpar ao apaertar o botão</p>
+		<input type="number" id="valor3" placeholder="Número 3">
+		<h3 id = resposta></h3>
+		<button onclick="parImpar()">Clique aqui 3</button>
+		<hr>
+		
+
+		<p style="color:rgb(0, 0, 0)">DESAFIO: Imprima "Hello World" na tela, e a cada vez que ele for clicado a partir da primeira, alterar entre duas cores a sua escolha</p>
+		<h1 id="HelloWorld"></h1>
+		<button onclick="printHello()">Clique aqui 4</button>
+		
+
+	</body>
+    <script src="exercicios.js"></script>
+</html>
