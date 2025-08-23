@@ -1,33 +1,91 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>2ª Aula</title>
-	</head>
-	<body>
-		<h1>2ª Aula</h1>
-		<h1>Exercícios</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2ª Aula</title>
+  </head>
+  <body>
+    <h1>2ª Aula</h1>
+    <h1>Exercícios</h1>
 
-		<p>Exercício 1: Some os valores dos dois campos abaixo</p>
-		Dica: Use "parseFloat" para converter os valores de string para número.
-		<br>
-		<input type="number" id="valor1" placeholder="Número 1">
-		<input type="number" id="valor2" placeholder="Número 2">
-		<button onclick="">Clique aqui 1</button>
+    <p>Exercício 1: Some os valores dos dois campos abaixo</p>
+    Dica: Use "parseFloat" para converter os valores de string para número.
+    <br />
+    <input type="number" id="valor1" placeholder="Número 1" />
+    <input type="number" id="valor2" placeholder="Número 2" />
+    <button onclick="Somar()">Clique aqui 1</button>
+    <p id="resultado"></p>
 
-		<p>Exemplo 2: Faça uma função que logue um número crescente a cada vez que o botão abaixo for apertado (1,2,3,4,5...)</p>
-		<button onclick="">Clique aqui 2</button>
-		<p style="color:orangered">Exemplo 3(Extra): Iprima no console (ou na tela) se o número é par ou ímpar ao apaertar o botão</p>
-		<input type="number" id="valor3" placeholder="Número 3">
+    <p>
+      Exemplo 2: Faça uma função que logue um número crescente a cada vez que o
+      botão abaixo for apertado (1,2,3,4,5...)
+    </p>
+    <button onclick="contar()">Clique aqui 2</button>
+    <p id="contador"></p>
+    <p style="color: orangered">
+      Exemplo 3(Extra): Iprima no console (ou na tela) se o número é par ou
+      ímpar ao apaertar o botão
+    </p>
+    <input type="number" id="valor3" placeholder="Número 3" />
+     <p> </p>
 
-		<button onclick="">Clique aqui 3</button>
-		<p style="color:red">DESAFIO: Imprima "Hello World" na tela, e a cada vez que ele for clicado a partir da primeira, alterar entre duas cores a sua escolha</p>
-		
-		<button onclick="">Clique aqui 4</button>
-		<h1 id="HelloWorld"></h1>
-	</body>
+    <button onclick="ParImpar()">Clique aqui 3</button>
+    <p style="color: red">
+
+		<p id="num"></p>
+      DESAFIO: Imprima "Hello World" na tela, e a cada vez que ele for clicado a
+      partir da primeira, alterar entre duas cores a sua escolha
+    </p>
+
+    <button onclick="Ola_mundo() ">Clique aqui 4</button>
+    <h1 id="HelloWorld"></h1>
+  </body>
 </html>
 <script>
 	// Escreva os códigos das funções aqui!
+  function Somar() {
+    // Atividade 1
+    const num1 = document.getElementById("valor1");
+    const num2 = document.getElementById("valor2");
+    const soma = parseFloat(num1.value) + parseFloat(num2.value);
+    document.getElementById("resultado").innerText = "Resultado: " + soma;
+  }
+
+  // Atividade 2
+  let numero = 0; 
+  function contar() {
+    numero++; 
+    document.getElementById("contador").innerText = "Número: " + numero;
+  }
+
+  // Atividade 3
+  function ParImpar() {
+    const num = document.getElementById("valor3");
+    if (num.value % 2 === 0) {
+       console.log(num + " e PAR");
+      document.getElementById("num").innerText = num + " e PAR";
+    } else {
+        console.log(num + " e ÍMPAR");
+      document.getElementById("num").innerText = num + " e ÍMPAR";
+    }
+  }
+
+  let cor = false; 
+
+  function Ola_mundo() {
+    const texto = document.getElementById("HelloWorld");
+    texto.innerText = "Hello World";
+    if (cor) {
+      texto.style.color = "blue";
+    } else {
+      texto.style.color = "green";
+    }
+
+    cor = !cor; 
+  }
+
+
+
+  
 </script>
