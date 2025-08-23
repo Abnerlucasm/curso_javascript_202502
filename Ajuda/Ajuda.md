@@ -20,10 +20,12 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 >
 > **OBS**: Use o caminho/path completo. Ex: `C:/Users/seu-nome/curso_javascript_202502/aula-1/`
 >
-> ```git
+> ````git
+> **OBS**: Use o caminho/path completo. Ex: `C:\Users\usuario\Área de Trabalho\curso_javascript_202502\aula-1`
+> ``` git
 > git fetch origin
-> git checkout origin/main -- caminho/arquivo.sql
-> ```
+> git checkout origin/main -- /caminho/
+> ````
 
 <img src="https://raw.githubusercontent.com/Abnerlucasm/curso_javascript_202502/master/Ajuda/assets/copiar-path-completo.gif" width="400">
 </img>
