@@ -8,6 +8,8 @@ Este material reúne links e orientações para auxiliar em tarefas comuns do di
 
 Link: https://vscode.dev/?vscode-lang=pt-br
 
+---
+
 ### 🔧 Comandos Git
 
 Git é uma ferramenta essencial para controle de versão. Abaixo, um repositório com os principais comandos para consulta rápida:
