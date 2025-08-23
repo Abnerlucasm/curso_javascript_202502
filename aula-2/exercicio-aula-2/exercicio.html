@@ -14,22 +14,64 @@
 		<br>
 		<input type="number" id="valor1" placeholder="Número 1">
 		<input type="number" id="valor2" placeholder="Número 2">
-		<button onclick="">Clique aqui 1</button>
+		<button onclick="soma()">Clique aqui 1</button>
 
 		<p>Exemplo 2: Faça uma função que logue um número crescente a cada vez que o botão abaixo for apertado (1,2,3,4,5...)</p>
-		<button onclick="">Clique aqui 2</button>
+		<button onclick="logue()">Clique aqui 2</button>
 		<p style="color:orangered">Exemplo 3(Extra): Iprima no console (ou na tela) se o número é par ou ímpar ao apaertar o botão</p>
 		<input type="number" id="valor3" placeholder="Número 3">
 
-		<button onclick="">Clique aqui 3</button>
+		<button onclick="imparPar()">Clique aqui 3</button>
 		<p style="color:red">DESAFIO: Imprima "Hello World" na tela, e a cada vez que ele for clicado a partir da primeira, alterar entre duas cores a sua escolha</p>
 		
-		<button onclick="">Clique aqui 4</button>
-		<h1 id="HelloWorld"></h1>
+		<button onclick="hello()">Clique aqui 4</button>
+		<h1 id="HelloWorld">hello World</h1>
 
 		<script></script>
 	</body>
 </html>
 <script>
+
+/* atividade 1 */
+function soma(){
+	const number = document.getElementById('valor1')
+	const number1 = document.getElementById('valor2')
+
+	console.log(parseFloat(number.value) + parseFloat(number1.value))
+}
+
+
+/* atividade 2 */
+let contador = 10;
+function logue(){
+	for(let i = 0; i < contador; i++)
+	console.log(i)
+}
+	
+	/* atividade 3 */
+	function imparPar(){
+		const valor = document.getElementById('valor3')
+		if(valor.value % 2 === 0){
+			console.log('numero é par')
+		}else{
+			console.log('numero é impar')
+		}
+	}
+
+
+
+/* atividade 4 */
+let toggle = false;
+function hello(){
+	const texto = document.getElementById('HelloWorld')
+	if(toggle) {
+        texto.style.color = "blue";
+    } else {
+        texto.style.color = "green";
+    }
+    toggle = !toggle;
+}
+	
+
 	
 </script>
