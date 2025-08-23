@@ -14,20 +14,51 @@
 		<br>
 		<input type="number" id="valor1" placeholder="Número 1">
 		<input type="number" id="valor2" placeholder="Número 2">
-		<button onclick="">Clique aqui 1</button>
+		<button onclick="Somar()">Clique aqui 1</button>
+		<h4 id="texto">Resultado: </h4>
 
 		<p>Exemplo 2: Faça uma função que logue um número crescente a cada vez que o botão abaixo for apertado (1,2,3,4,5...)</p>
-		<button onclick="">Clique aqui 2</button>
+		<button onclick="Contador()">Clique aqui 2</button>
+		
 		<p style="color:orangered">Exemplo 3(Extra): Iprima no console (ou na tela) se o número é par ou ímpar ao apaertar o botão</p>
 		<input type="number" id="valor3" placeholder="Número 3">
 
-		<button onclick="">Clique aqui 3</button>
+		<button onclick="ParImpar()">Clique aqui 3</button>
 		<p style="color:red">DESAFIO: Imprima "Hello World" na tela, e a cada vez que ele for clicado a partir da primeira, alterar entre duas cores a sua escolha</p>
 		
-		<button onclick="">Clique aqui 4</button>
+		<button onclick="MudaCor()">Clique aqui 4</button>
 		<h1 id="HelloWorld"></h1>
 	</body>
 </html>
 <script>
-	// Escreva os códigos das funções aqui!
+	function Somar()
+	{
+		const texto = document.getElementById('texto')
+		const valor1 = parseFloat(document.getElementById('valor1').value)
+		const valor2 = parseFloat(document.getElementById('valor2').value)
+		const resultado = valor1 + valor2
+		texto.innerText = `Resultado: ${resultado}`
+	}
+
+	let value = 0;
+	function Contador(){
+		value = value + 1;
+		console.log(value)
+	}
+
+	function ParImpar(){
+		const input = document.getElementById('valor3')
+		const value = parseFloat(input.value)
+		let resultado = value % 2 == 0 ? "Par" : "Impar"
+		console.log(`o numero ${value} é ${resultado}`)
+	}
+
+	let alternar = false;
+	function MudaCor(){
+		const texto = document.getElementById('HelloWorld')
+		texto.innerText = "Hello World"
+		alternar = !alternar
+
+		texto.style.color = alternar ? 'blue' : 'green'
+	}
 </script>
