@@ -1,0 +1,67 @@
+		<p>Exercício 1: Some os valores dos dois campos abaixo</p>
+		Dica: Use "parseFloat" para converter os valores de string para número.
+		<br>
+		<input type="number" id="valor1" placeholder="Número 1">
+		<input type="number" id="valor2" placeholder="Número 2">
+		<button onclick="somar()">Clique aqui 1</button>
+
+		<p>Exemplo 2: Faça uma função que logue um número crescente a cada vez que o botão abaixo for apertado (1,2,3,4,5...)</p>
+		<button onclick="contador()">Clique aqui 2</button>
+		<p style="color:orangered">Exemplo 3(Extra): Iprima no console (ou na tela) se o número é par ou ímpar ao apaertar o botão</p>
+		<input type="number" id="valor3" placeholder="Número 3">
+
+		<button onclick="parImpar()">Clique aqui 3</button>
+		<p style="color:red">DESAFIO: Imprima "Hello World" na tela, e a cada vez que ele for clicado a partir da primeira, alterar entre duas cores a sua escolha</p>
+		
+		<button onclick="helloWorld()">Clique aqui 4</button>
+		<h1 id="HelloWorld"></h1>
+	</body>
+</html>
+<script>
+	function somar(){
+        let valor1 = parseFloat(document.getElementById('valor1').value)
+        let valor2 = parseFloat(document.getElementById('valor2').value)
+        console.log("A soma deu: " + (valor1 + valor2))
+        alert("a soma deu: " + (valor1 + valor2))
+    }
+    let crescenteFunção = (function() {
+  let contador = 1;
+  return function() {
+    console.log(contador);
+    alert("Número crescente: " + contador);
+
+    contador++;
+  };
+})();
+
+function contador() {
+  crescenteFunção();
+}
+
+function parImpar() {
+  let valor = parseInt(document.getElementById('valor3').value);
+  if (valor % 2 == 0) {
+    console.log(valor + " é par");
+    alert(valor + " é par");
+  } else {
+    console.log(valor + " é ímpar");
+    alert(valor + " é ímpar");
+  }
+}
+
+function helloWorld() {
+  const helloColor = document.getElementById("HelloWorld");
+  if (helloColor.style.color === "red") {
+    helloColor.style.color = "purple";
+  } else {
+    helloColor.style.color = "red";
+  }
+  helloColor.innerText = "Hello World!";
+}
+        
+        
+        
+        
+
+    
+</script>
