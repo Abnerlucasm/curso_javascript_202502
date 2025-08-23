@@ -30,7 +30,7 @@ function parImpar(){
 }
 
 // Mudar cor do Hello World 
-function printHello(){
+function printHello(){ // Uso de IA - não compreendi direito como realizar 
     const print = document.getElementById("HelloWorld")
 
     if(print.innerText === "") {
