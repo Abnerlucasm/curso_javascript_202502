@@ -63,7 +63,7 @@
 - - Estrutura de front-end
 - - Consumindo APIs
 
-### 26/09/2025 - [8a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-8)
+### 03/10/2025 - [8a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-8)
 
 - Conclusão e correção dos exercícios da 7ª Aula
 - Recapitulação dos conteúdos
