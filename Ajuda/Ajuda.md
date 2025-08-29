@@ -21,7 +21,7 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 > **OBS**: Use o caminho/path completo. Ex: `C:\Users\usuario\Área de Trabalho\curso_javascript_202502\aula-1`
 > ``` git
 > git fetch origin
-> git checkout origin/main -- /caminho/
+> git checkout origin/master -- /caminho/
 > ```
 >
 
