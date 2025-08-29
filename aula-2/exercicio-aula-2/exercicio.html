@@ -34,10 +34,10 @@
 
 /* atividade 1 */
 function soma(){
-	const number = document.getElementById('valor1')
-	const number1 = document.getElementById('valor2')
+	const number = document.getElementById('valor1').value
+	const number1 = document.getElementById('valor2').value
 
-	console.log(parseFloat(number.value) + parseFloat(number1.value))
+	console.log(parseFloat(number) + parseFloat(number1))
 }
 
 
@@ -61,15 +61,15 @@ function logue(){
 
 
 /* atividade 4 */
-let toggle = false;
+let controle = false;
 function hello(){
 	const texto = document.getElementById('HelloWorld')
-	if(toggle) {
+	if(controle) {
         texto.style.color = "blue";
     } else {
         texto.style.color = "green";
     }
-    toggle = !toggle;
+    controle = !controle;
 }
 	
 

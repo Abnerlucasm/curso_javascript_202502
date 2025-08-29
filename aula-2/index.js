@@ -6,5 +6,7 @@ function mudaCor(){
     console.log('meu nome é : ' , input.value)
     elemento.innerText = `meu nome é : ${input.value}`
 
+    
+
 }
 
