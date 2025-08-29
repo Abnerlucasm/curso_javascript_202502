@@ -1,0 +1,15 @@
+body{
+    background-color: #778899;
+}
+
+h1{
+    color: #1b1f24;;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+input{
+    background-color: #1b1f24;
+    color: black;
+    border: 2px solid white
+}
