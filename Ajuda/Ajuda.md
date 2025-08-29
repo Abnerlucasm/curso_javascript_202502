@@ -4,11 +4,29 @@ Este material reúne links e orientações para auxiliar em tarefas comuns do di
 
 ---
 
+### IDE VS Code Online
+
+Link: https://vscode.dev/?vscode-lang=pt-br
+
+---
+
 ### 🔧 Comandos Git
 
 Git é uma ferramenta essencial para controle de versão. Abaixo, um repositório com os principais comandos para consulta rápida:
 
 👉 [Comandos Git (Gist no GitHub)](https://gist.github.com/leocomelli/2545add34e4fec21ec16#file-git-md)
+
+> - **Atualizar branch pessoal com base na master:** 
+>
+> **OBS**: Use o caminho/path completo. Ex: `C:\Users\usuario\Área de Trabalho\curso_javascript_202502\aula-1`
+> ``` git
+> git fetch origin
+> git checkout origin/main -- /caminho/
+> ```
+>
+
+<img src="https://raw.githubusercontent.com/Abnerlucasm/curso_javascript_202502/master/Ajuda/assets/copiar-path-completo.gif" width="400">
+</img>
 
 ---
 
@@ -29,7 +47,15 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 - [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
 - [DevDocs.io - Documentação de várias tecnologias](https://devdocs.io/)
 - [W3schools - Aprenda Código online](https://www.w3schools.com/)
-
+- [HTML Básico](https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content)
+- [Introdução HTML](https://www.devmedia.com.br/html-basico-codigos-html/16596)
+- [Documentação JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Roadmap Javascript em Inglês](https://roadmap.sh/pdfs/roadmaps/javascript.pdf)
+- [Roadmap javascript em Português](https://jeffbruchado.com.br/blog/roadmap-javascript-tudo-o-que-voce-precisa-aprender)
+- [Noções Básicas JS](https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)
+- [Guia JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide)
 ---
+
+
 
 Este guia está em constante atualização. Contribuições são bem-vindas!
