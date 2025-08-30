@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>3ª Aula</title>
+	</head>
+	<body>
+		<h1>3ª Aula</h1>
+		<h1>Exercícios</h1>
+
+        <h3>Exercício 1</h3>
+		<p>Crie uma função que realiza operações com os números abaixo, baseado no que está selecionado</p>
+		<input type="text" id="valor1" placeholder="Número 1">
+        <select id="operacao">
+            <option value="soma">Soma</option>
+            <option value="substracao">Subtração</option>
+            <option value="multiplicacao">Multiplicação</option>
+            <option value="divisao">Divisao</option>
+        </select>
+		<input type="text" id="valor2" placeholder="Número 2">
+		<button onclick="operacao()">Clique aqui 1</button> 
+        <p id="resultado1">Resultado</p>
+
+        <h3>Exercício 2</h3>
+		<p>Crie uma Arrow Function que receba uma palavra e verifique se ela é um palíndromo(se lê igual de trás pra frente), caso seja, fale que é em verde, se não for, que não é em vermelho</p>
+		<input type="text" id="palavra" placeholder="Palavra aqui">
+        <button onclick="palavra()">Clique aqui 2</button>
+        <p id="resultado2">Resultado</p>
+
+        <h3>Exercício 3</h3>
+        <p>
+            Crie uma função que receba três valores, calcule a média deles, e retorne:<br>
+            "Aprovado com Excelência" caso a média seja superior a 9<br>
+            "Aprovado" entre 6 e 8,9<br>
+            "Recuperação" entre 4 e 5,6<br>
+            "Reprovado" caso seja inferior a 3,9
+        </p>
+        <input type="text" id="nota1" placeholder="Nota 1">
+        <input type="text" id="nota2" placeholder="Nota 2">
+        <input type="text" id="nota3" placeholder="Nota 3">
+        <button onclick="media()">Clique aqui 3</button>
+        <p id="resultado3">Resultado</p>
+
+        <h3>Exercício 4</h3>
+        <p>
+            Crie uma função usando operador ternário que receba um número onde: <br>
+            Caso seja ímpar, eleve ele ao cubo<br>
+            Caso seja par, some ele com sua metade (ex: 2 = 2+1, exiba o número 3)
+        </p>
+        <input type="text" id="valor3" placeholder="Número aqui">
+        <button onclick="OperadorTernario()">Clique aqui 4</button>
+        <p id="resultado4">Resultado</p>
+
+	</body>
+    <script src="aula3.js"></script>
+</html>
