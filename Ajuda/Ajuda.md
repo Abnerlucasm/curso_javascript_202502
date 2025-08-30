@@ -22,6 +22,13 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 > ``` git
 > git fetch origin
 > git checkout origin/master -- /caminho/
+> ``` 
+Jeito recomendado (Git mais novo, com restore):
+> ```git
+> git fetch origin
+> git restore --source origin/master -- caminho/da/pasta/
+> git add caminho/da/pasta/
+> git commit -m "Merge da pasta caminho/da/pasta do origin/master"
 > ```
 >
 
