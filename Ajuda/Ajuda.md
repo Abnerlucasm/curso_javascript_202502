@@ -19,9 +19,13 @@ Git é uma ferramenta essencial para controle de versão. Abaixo, um repositóri
 > - **Atualizar branch pessoal com base na master:** 
 >
 > **OBS**: Use o caminho/path completo. Ex: `C:\Users\usuario\Área de Trabalho\curso_javascript_202502\aula-1`
+> 
+Jeito compatível (Git mais antigo, com checkout):
 > ``` git
 > git fetch origin
-> git checkout origin/master -- /caminho/
+> git checkout origin/master -- caminho/da/pasta/
+> git add caminho/da/pasta/
+> git commit -m "Merge da pasta caminho/da/pasta do origin/master"
 > ``` 
 Jeito recomendado (Git mais novo, com restore):
 > ```git
