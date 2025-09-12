@@ -53,5 +53,4 @@ function media(){
         resultado.innerText = `reprovado ${calcular}`
     }
 
-
 }
