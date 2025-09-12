@@ -1,5 +1,4 @@
 
-
 function MudaCor(){
     const elemento = document.getElementById('titulo')
 
