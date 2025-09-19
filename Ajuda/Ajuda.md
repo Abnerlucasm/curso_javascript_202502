@@ -65,6 +65,7 @@ Jeito recomendado (Git mais novo, com restore):
 - [Roadmap javascript em Português](https://jeffbruchado.com.br/blog/roadmap-javascript-tudo-o-que-voce-precisa-aprender)
 - [Noções Básicas JS](https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)
 - [Guia JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide)
+- [HTTP Status Codes (Códigos de Status Requisições e Respostas HTTP)](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)
 ---
 
 
