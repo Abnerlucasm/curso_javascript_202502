@@ -66,8 +66,11 @@ Jeito recomendado (Git mais novo, com restore):
 - [Noções Básicas JS](https://developer.mozilla.org/pt-BR/docs/Learn_web_development/Getting_started/Your_first_website/Adding_interactivity)
 - [Guia JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide)
 - [HTTP Status Codes (Códigos de Status Requisições e Respostas HTTP)](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)
+- [Artigo Design Patterns JS](https://medium.com/@pedrofullstack/um-guia-para-design-patterns-em-javascript-171ca3c24dd6)
+- [Praticar Escrita de Código de Forma Gamificada - Codewars](https://www.codewars.com/)
+- [1 - Exemplo de Design Patterns](https://refactoring.guru/design-patterns/creational-patterns)
+- [2 - Exemplo de Design Patterns](https://www.patterns.dev/)
 ---
-
 
 
 Este guia está em constante atualização. Contribuições são bem-vindas!
