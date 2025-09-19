@@ -70,6 +70,15 @@ Jeito recomendado (Git mais novo, com restore):
 - [Praticar Escrita de Código de Forma Gamificada - Codewars](https://www.codewars.com/)
 - [1 - Exemplo de Design Patterns](https://refactoring.guru/design-patterns/creational-patterns)
 - [2 - Exemplo de Design Patterns](https://www.patterns.dev/)
+
+#### APIs Públicas / Gratuitas
+- [GitHub Public Apis](https://github.com/public-apis/public-apis)
+- [Any API](https://any-api.com/)
+- [rapidApi](https://rapidapi.com/collection/list-of-free-apis)
+- [Mixed Analytics](https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/)
+- [Brasil API](https://brasilapi.com.br/)
+- [API de Moedas](https://docs.awesomeapi.com.br/api-de-moedas)
+- [APIs de Texto - InverterTexto](https://api.invertexto.com/)
 ---
 
 
