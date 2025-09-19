@@ -1,6 +1,3 @@
-// Exercício 1
-
-// Array de objetos { id, nome, comprado }
 let lista = [];
 
 const inputItem = document.getElementById("item");
@@ -8,14 +5,12 @@ const btnAdd = document.getElementById("add");
 const ulLista = document.getElementById("lista");
 const contador = document.getElementById("contador");
 
-// Função para renderizar
 function render() {
   ulLista.innerHTML = "";
   lista.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item.nome + (item.comprado ? " - Comprado" : "");
 
-    // Botão marcar
     const btnCheck = document.createElement("button");
     btnCheck.textContent = "Marcar";
     btnCheck.onclick = () => {
@@ -23,7 +18,6 @@ function render() {
       render();
     };
 
-    // Botão remover
     const btnRemove = document.createElement("button");
     btnRemove.textContent = "Remover";
     btnRemove.onclick = () => {
@@ -35,13 +29,11 @@ function render() {
     ulLista.appendChild(li);
   });
 
-  // Atualizar contador
   const total = lista.length;
   const comprados = lista.filter((i) => i.comprado).length;
   contador.textContent = `${total} itens • ${comprados} comprados`;
 }
 
-// Adicionar item
 btnAdd.onclick = () => {
   const nome = inputItem.value.trim();
   if (!nome) return;
@@ -49,9 +41,6 @@ btnAdd.onclick = () => {
   inputItem.value = "";
   render();
 };
- // -------------------------------------------------------------------------------- //
-
- // Exercício 2
 
 const inputNums = document.getElementById("nums");
 const btnCalc = document.getElementById("calc");
