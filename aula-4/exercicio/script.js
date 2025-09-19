@@ -4,7 +4,6 @@
 let lista = [];
 
 const inputItem = document.getElementById("item");
-const btnAdd = document.getElementById("add");
 const ulLista = document.getElementById("lista");
 const contador = document.getElementById("contador");
 
@@ -42,7 +41,7 @@ function render() {
 }
 
 // Adicionar item
-btnAdd.onclick = () => {
+function adicionarItem() {
   const nome = inputItem.value.trim();
   if (!nome) return;
   lista.push({ id: lista.length, nome, comprado: false });
@@ -57,7 +56,7 @@ const inputNums = document.getElementById("nums");
 const btnCalc = document.getElementById("calc");
 const out = document.getElementById("out");
 
-btnCalc.onclick = () => {
+function calcular() {
   const valores = inputNums.value
     .split(",")
     .map((n) => Number(n.trim()))
