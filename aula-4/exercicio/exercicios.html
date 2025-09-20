@@ -28,7 +28,7 @@
     </ul>
 
     <input id="item" placeholder="Novo item..." />
-    <button id="add">Adicionar</button>
+    <button id="add" onclick="adicionarItem()">Adicionar</button>
     <ul id="lista"></ul>
 
     <p id="contador" style="color: #5f6368">
@@ -46,15 +46,19 @@
       <li>Somente pares com <code>filter</code>.</li>
       <li>Quadrados com <code>map</code>.</li>
       <li>
-        Maior e menor valores (pode usar <code>Math.max</code>/<code>Math.min</code>
+        Maior e menor valores (pode usar <code>Math.max</code>/<code
+          >Math.min</code
+        >
         com <code>...</code>).
       </li>
     </ul>
 
     <input id="nums" placeholder="Ex.: 1,2,3,4,5" />
-    <button id="calc">Calcular</button>
+    <button id="calc" onclick="calcular()">Calcular</button>
 
-    <pre id="out" style="color: #5f6368">Mostre aqui os resultados formatados.</pre>
+    <pre id="out" style="color: #5f6368">
+Mostre aqui os resultados formatados.</pre
+    >
   </body>
   <script src="./script.js"></script>
 </html>

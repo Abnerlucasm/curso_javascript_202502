@@ -13,7 +13,7 @@ function renderizarLista() {
 
 function adicionaAluno() {
     const nome = document.getElementById("nome").value;
-    const idade = document.getElementById("idade").value;
+
 
     if (nome && idade) {
         const aluno = {
