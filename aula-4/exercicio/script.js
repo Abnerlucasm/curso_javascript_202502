@@ -51,4 +51,34 @@ function renderizarLista() {
         contador.textContent = `${lista.length} itens • ${comprados} comprados`;
     });
 }
-// exercicio 2
+
+ // Exercício 2
+
+const inputNums = document.getElementById("nums");
+const btnCalc = document.getElementById("calc");
+const out = document.getElementById("out");
+
+function calcular() {
+  const valores = inputNums.value
+    .split(",")
+    .map((n) => Number(n.trim()))
+    .filter((n) => !isNaN(n));
+
+  if (valores.length === 0) {
+    out.textContent = "Digite números válidos!";
+    return;
+  }
+
+  const pares = valores.filter((n) => n % 2 === 0);
+  const quadrados = valores.map((n) => n * n);
+  const maior = Math.max(...valores);
+  const menor = Math.min(...valores);
+
+  out.textContent = `
+Array original: [${valores.join(", ")}]
+Pares: [${pares.join(", ")}]
+Quadrados: [${quadrados.join(", ")}]
+Maior valor: ${maior}
+Menor valor: ${menor}
+  `;
+};
