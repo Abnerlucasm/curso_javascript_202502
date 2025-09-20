@@ -79,6 +79,8 @@ Jeito recomendado (Git mais novo, com restore):
 - [Brasil API](https://brasilapi.com.br/)
 - [API de Moedas](https://docs.awesomeapi.com.br/api-de-moedas)
 - [APIs de Texto - InverterTexto](https://api.invertexto.com/)
+- [API Pokémon](https://pokeapi.co/)
+- [API Yu-Gi-Oh](https://ygoprodeck.com/api-guide/)
 ---
 
 
