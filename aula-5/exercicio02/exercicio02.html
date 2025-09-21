@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- Exercício 02 -->
+  <section style="background-color: #fff3e0; padding: 20px; border-radius: 8px;">
+    <h2 style="color: #ef6c00;">Exercício 02 — Consulta API</h2>
+
+    <p>
+      Consulte a API <code>https://fakestoreapi.com/products</code> informando o ID do produto.  
+      Mostre as informações correspondentes.
+    </p>
+
+    <p>
+        <a href="https://fakestoreapi.com/docs" target="_blank" style="color: #1976d2; text-decoration: underline; font-weight: bold;">
+            Segue link da documentação da API
+        </a>
+    </p>
+
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 10px;">
+      <input type="number" id="input-prod" placeholder="ID do Produto" style="padding: 6px; flex: 1 1 150px;">
+      <button id="btn-search" style="background-color: #ef6c00; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer;">
+        Consultar
+      </button>
+    </div>
+
+    <h3 style="margin-top: 20px;">Resultado da Consulta:</h3>
+    <pre id="out" style="min-height: 50px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #fff; color: #555;">
+      <!-- Resultado do produto será exibido aqui -->
+    </pre>
+  </section>
+    
+</body>
+</html>
