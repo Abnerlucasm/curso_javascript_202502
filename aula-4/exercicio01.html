@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 04 — Exercícios</title>
+  </head>
+  <body>
+    <section
+      style="background-color: #e7be36a5; padding: 20px; border-radius: 8px"
+    >
+      <h1>Aula 04</h1>
+
+      <h2 style="color: rgb(0, 0, 0)">Exercício 1 — Lista de Compras</h2>
+      <p>
+        Implemente uma lista dinâmica usando um <strong>array</strong> de
+        objetos <code>{ id, nome, comprado }</code>.
+      </p>
+      <ul>
+        <li>Adicionar item (input + botão) -> incluir no array.</li>
+        <li>
+          Renderizar a lista no DOM
+          (<code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code>).           <!--&lt == < e &gt == >-->
+        </li>
+        <li>
+          Cada item deve ter: <em>marcar como comprado</em> e <em>remover</em>.
+        </li>
+        <li>
+          Mostrar contador: <code>X</code> itens • <code>Y</code> comprados.
+        </li>
+      </ul>
+
+      <input id="item" placeholder="Novo item..." />
+      <button id="add" onclick="adicionarItem()">Adicionar</button>
+      <ul id="lista"></ul>
+
+      <p id="contador" style="color: #5f6368">
+        Atualize este texto com o total e os comprados.
+      </p>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>
