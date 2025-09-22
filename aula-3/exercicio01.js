@@ -68,7 +68,6 @@ function exercicio_4() {
         ? val3 + val3 / 2
         : (val3 ** 3).toFixed(2);
 
-
     const valorMsg = (val3 % 2 === 0)
         ? `Número é par, então tome ele somado à metade: ${resultado}`
         : `Número é ímpar, então tome ele ao cubo: ${resultado}`;
