@@ -19,13 +19,13 @@
       "estoque": 50
     },
     {
-      "id": 4,
+      "cod": 4,
       "nome": "Monitor 27 Polegadas",
       "preco": 1200.00,
       "estoque": 15
     },
     {
-      "id": 5,
+      "cod": 5,
       "nome": "Teclado Mecânico",
       "preco": 400.00,
       "estoque": 20
