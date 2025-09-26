@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 04 — Exercícios</title>
+  </head>
+  <body>
+    <h1>Aula 04</h1>
+
+    <h2 style="color: darkgreen">Exercício 1 — Lista de Compras</h2>
+    <p>
+      Implemente uma lista dinâmica usando um <strong>array</strong> de objetos
+      <code>{ id, nome, comprado }</code>.
+    </p>
+    <ul>
+      <li>Adicionar item (input + botão) -> incluir no array.</li>
+      <li>
+        Renderizar a lista no DOM
+        (<code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code>).
+      </li>
+      <li>
+        Cada item deve ter: <em>marcar como comprado</em> e <em>remover</em>.
+      </li>
+      <li>
+        Mostrar contador: <code>X</code> itens • <code>Y</code> comprados.
+      </li>
+    </ul>
+
+    <input id="item" placeholder="Novo item..." />
+    <button id="add" onclick="adicionarItem()">Adicionar</button>
+    <ul id="lista"></ul>
+
+    <p id="contador" style="color: #5f6368">
+      Atualize este texto com o total e os comprados.
+    </p>
+
+    <hr />
+
+    <h2 style="color: orangered">Exercício 2 — Laboratório de Arrays</h2>
+    <p>
+      Receba números (separados por vírgula) e calcule estatísticas, sem mutar o
+      array original.
+    </p>
+    <ul>
+      <li>Somente pares com <code>filter</code>.</li>
+      <li>Quadrados com <code>map</code>.</li>
+      <li>
+        Maior e menor valores (pode usar <code>Math.max</code>/<code>Math.min</code>
+        com <code>...</code>).
+      </li>
+    </ul>
+
+    <input id="nums" placeholder="Ex.: 1,2,3,4,5" />
+    <button id="calc" onclick="calcular()">Calcular</button>
+
+    <pre id="out" style="color: #5f6368">Mostre aqui os resultados formatados.</pre>
+  </body>
+  <script src="./script.js"></script>
+</html>
