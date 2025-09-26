@@ -129,3 +129,5 @@ botaoBuscar.addEventListener("click", function () {
       saida.textContent = "Erro: " + erro.message;
     });
 });
+
+
