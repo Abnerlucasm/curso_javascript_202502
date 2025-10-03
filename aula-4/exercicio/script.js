@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 let listaDeCompras = [];
 let id =1;
 
 const input = document.getElementById('item');
 const btnAdd = document.getElementById('adicionar');
 const ul = document.getElementById('lista-de-compras');
-const contador = document.getElementById('contador'); 
+const contador1 = document.getElementById('contador'); 
 
 btnAdd.addEventListener('click', () =>{
     const nome = input.value.trim();
@@ -45,7 +45,7 @@ function render(){
         //Atuliza contador 
         const total = lista.length
         const comprado = lista.filter(i => i.comprado).length
-        contador.textContent = `${total} itens • ${comprados} comprados`;
+        contador1.textContent = `${total} itens • ${comprados} comprados`;
 
         //Enter adiciona item
         iput.addEventListener('keydown', e =>{
@@ -58,7 +58,6 @@ function render(){
     
     })
 }
-=======
 // Exercício 1
 
 // Array de objetos { id, nome, comprado }
@@ -132,4 +131,3 @@ Maior valor: ${maior}
 Menor valor: ${menor}
   `;
 };
->>>>>>> 14dd61529e4f347775645cac9f47aaed5aec8764
