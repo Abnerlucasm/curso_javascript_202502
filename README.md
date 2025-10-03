@@ -46,10 +46,10 @@
 - - Estrutura de front-end
 - - Consumindo APIs
 
-### 17/10/2025 - [7a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-7)
+### 17/10/2025 - [9a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-7)
 - Recapitulação e Exercícios
 - Tirar dúvidas
 - Conclusão dos exercícios da aula 6
 
-### 24/10/2025 - [8a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-8)
+### 24/10/2025 - [10a aula](https://github.com/Abnerlucasm/curso_javascript_202502/tree/master/aula-8)
 - Hackathon

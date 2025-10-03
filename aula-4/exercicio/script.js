@@ -1,22 +1,72 @@
-const lista = [];
+<<<<<<< HEAD
+let listaDeCompras = [];
+let id =1;
 
-function adicionaItem(){
-    const item = document.getElementById("item").value;
-    if (item) {
-        const newItem = {
-            id: lista.length,
-            nome: item,
-            comprado: false,
+const input = document.getElementById('item');
+const btnAdd = document.getElementById('adicionar');
+const ul = document.getElementById('lista-de-compras');
+const contador = document.getElementById('contador'); 
+
+btnAdd.addEventListener('click', () =>{
+    const nome = input.value.trim();
+    if(nome){
+        lista.push({id: id++, nome, comprado: false});
+        input.value = '';
+        render();
+    } 
+})
+
+//renderizar lista
+function render(){
+    ul.innerHTML = '';
+    lista.forEach(item =>{
+        const li = document.createElement('li');
+        li.style.textDecoration = item.comprado ? 'line-through' : '';
+        li.textContent = item.nome + '';
+
+        const btnCheck = document.createElement('button');
+        btnCheck.textContent = item.comprado ? 'Desmarcar': 'Comprar';
+        btnCheck.onClick = () => {
+            item.comprado = !item.comprado;
+            render();
         };
-        lista.push(newItem);
-        renderizarLista();
-    }
-    else{
-        alert("Preencha os campos")
-    }
-}
+        li.appendChild(btnCheck);
 
-const listaHtml = document.getElementById("lista");
+        //botão remover
+        const btnDel = document.createElement('button');
+        btnDel.onClick = () => {
+            lista = lista.filter(i => i.id !== item.id);
+            render
+        };
+        li.appendChild(btnDel);
+
+        ul.appendChild(li);
+
+        //Atuliza contador 
+        const total = lista.length
+        const comprado = lista.filter(i => i.comprado).length
+        contador.textContent = `${total} itens • ${comprados} comprados`;
+
+        //Enter adiciona item
+        iput.addEventListener('keydown', e =>{
+            if(e.key === 'Enter') btnAdd.click();
+        });
+
+        //Inicializa
+        render();
+        
+    
+    })
+}
+=======
+// Exercício 1
+
+// Array de objetos { id, nome, comprado }
+let lista = [];
+
+const inputItem = document.getElementById("item");
+const ulLista = document.getElementById("lista");
+const contador = document.getElementById("contador");
 
 function renderizarLista() {
     listaHtml.innerHTML = "";
@@ -82,3 +132,4 @@ Maior valor: ${maior}
 Menor valor: ${menor}
   `;
 };
+>>>>>>> 14dd61529e4f347775645cac9f47aaed5aec8764
