@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício Aula 07</title>
+</head>
+<body style="font-family: Arial, sans-serif; background:#f3f4f6; color:#333; padding:20px;">
+  
+  <h1 style="font-size:20px; margin-bottom:10px;">
+    Utilizando as funções apresentadas hoje em sala, faça uma requisição na API "https://fakestoreapi.com/products"
+  </h1>
+  <h1 style="font-size:20px; margin-bottom:10px;">
+    Após isso, salve os itens em localStorage ou sessionStorage, e mostre ao clicar no botão "Carregar do Storage"
+  </h1>
+  <h3 style="font-weight:normal; color:#555; margin-bottom:20px;">
+    Observação: Fazer testes usando localStorage ou sessionStorage para ver a funcionalidade de cada um, fechando e abrindo o navegador ou a guia do programa
+  </h3>
+  
+  <h1 style="margin-bottom:15px;">Lista de Produtos</h1>
+  
+  <button onclick="carregarAPI()" 
+    style="background:#2563eb; color:white; border:none; padding:10px 16px; border-radius:6px; cursor:pointer; margin-right:5px;">
+    Buscar da API
+  </button>
+  
+  <button onclick="carregarStorage()" 
+    style="background:#16a34a; color:white; border:none; padding:10px 16px; border-radius:6px; cursor:pointer;">
+    Carregar do Storage
+  </button>
+  
+  <ul id="lista" 
+      style="margin-top:20px; list-style:none; display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; padding:0;">
+  </ul>
+
+  <script src="exercicio.js"></script>
+</body>
+</html>
