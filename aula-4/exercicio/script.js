@@ -68,4 +68,3 @@ document.getElementById('calc').onclick = () => {
         `Maior: ${maior}\n` +
         `Menor: ${menor}`;
 };
->>>>>>> 14dd61529e4f347775645cac9f47aaed5aec8764
