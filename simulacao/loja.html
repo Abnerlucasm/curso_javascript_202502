@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Mercado Simulado — Loja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root{
+            --bg:#eef2f6;
+            --card:#ffffff;
+            --accent:#0b74da;
+            --muted:#666;
+            --shadow: 0 6px 18px rgba(12,24,48,0.08);
+            --radius:10px;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background:var(--bg);
+            color:#222;
+            -webkit-font-smoothing:antialiased;
+        }
+        header{
+            background: linear-gradient(90deg,#0b74da 0%, #0366a6 100%);
+            color:#fff;
+            padding:16px 20px;
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        header .brand{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        header .logo{
+            width:44px;
+            height:44px;
+            background:rgba(255,255,255,0.12);
+            border-radius:8px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+        }
+        header h1{
+            font-size:1.1rem;
+            margin:0;
+            letter-spacing:0.4px;
+        }
+        main{
+            max-width:1100px;
+            margin:24px auto;
+            padding:0 16px;
+            display:grid;
+            grid-template-columns: 1fr 360px;
+            gap:20px;
+        }
+        #produtos{
+            display:grid;
+            grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+            gap:18px;
+            align-items:start;
+        }
+        .card{
+            background:var(--card);
+            border-radius:var(--radius);
+            box-shadow:var(--shadow);
+            padding:14px;
+            display:flex;
+            flex-direction:column;
+            gap:8px;
+            align-items:center;
+            text-align:center;
+            min-height:220px;
+        }
+        .card img{
+            width:110px;
+            height:110px;
+            object-fit:contain;
+            background:linear-gradient(180deg,#fafafa,#f0f6fb);
+            border-radius:8px;
+            padding:6px;
+        }
+        .card h3{ margin:0; font-size:1rem; }
+        .card p{ color:var(--muted); font-size:0.9rem; margin:6px 0; flex:1; overflow:hidden; }
+        .card .price{ font-weight:700; color:#111; margin-top:6px; }
+        .card button{
+            background:var(--accent);
+            color:#fff;
+            border:0;
+            padding:8px 12px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+        aside#carrinho{
+            background:var(--card);
+            border-radius:var(--radius);
+            box-shadow:var(--shadow);
+            padding:16px;
+            position:sticky;
+            top:20px;
+            height:fit-content;
+        }
+        #carrinho h2{ margin:0 0 8px 0; font-size:1.05rem; }
+        #carrinho-lista{ list-style:none; padding:0; margin:0 0 12px 0; display:flex; flex-direction:column; gap:8px; }
+        #carrinho-lista li{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:8px;
+            padding:8px;
+            border-radius:8px;
+            background:linear-gradient(180deg, #fbfbfb, #fff);
+            border:1px solid #f0f0f0;
+            font-size:0.95rem;
+        }
+        #total{ display:block; margin-top:6px; font-weight:700; font-size:1rem; }
+        #finalizar-compra{
+            margin-top:12px;
+            background:#2e7d32;
+            color:#fff;
+            border:0;
+            padding:10px 14px;
+            border-radius:8px;
+            cursor:pointer;
+            width:100%;
+        }
+        footer{ text-align:center; color:var(--muted); padding:18px 0; font-size:0.9rem; }
+        @media(max-width:880px){
+            main{ grid-template-columns: 1fr; }
+            aside#carrinho{ position:static; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <div class="logo">MV</div>
+            <div>
+                <h1>Mercado Virtual</h1>
+                <small style="opacity:0.9">Simulação — Hackathon</small>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="produtos" aria-label="Lista de produtos">
+            
+        </section>
+
+        <aside id="carrinho" aria-labelledby="carrinho-title">
+            <h2 id="carrinho-title">Seu Carrinho</h2>
+            <ul id="carrinho-lista">
+               
+            </ul>
+            <p id="total">Total: R$ 0,00</p>
+            <button id="finalizar-compra" type="button">Finalizar Compra</button>
+        </aside>
+    </main>
+
+    <footer>
+        © <span id="ano"></span> — Loja de Demonstração
+    </footer>
+
+    <script>
+        
+        document.getElementById('ano').textContent = new Date().getFullYear();
+    </script>
+
+    <script src="loja.js"></script>
+</body>
+</html>
