@@ -91,4 +91,4 @@
 
 ### Criatividade e Implementações Extras
 - Recursos adicionais implementados além do mínimo exigido.  
-- Soluções criativas ou otimizações simples que melhoram a experiência geral.
+- Soluções criativas ou otimizações simples que melhoram a experiência geral.        ☺ ☺ ♂                   
