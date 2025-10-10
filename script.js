@@ -1,9 +1,14 @@
+let listaDeProdutos = [];
+
+
 function listarProdutos() {
     const containerProdutos = document.querySelector('.produto');
 
     fetch('https://fakestoreapi.com/products')
         .then(response => response.json())
         .then(data => {
+
+            listaDeProdutos = data;
 
             containerProdutos.innerHTML = '';
 
