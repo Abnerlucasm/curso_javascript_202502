@@ -28,11 +28,13 @@ function listarProdutos() {
                 categoria.textContent = produto.category;
 
                 const botaoCompra = document.createElement('button');
+                botaoCompra.textContent = "Adicionar ao carrinho";
 
                 card.appendChild(imagem);
                 card.appendChild(titulo);
                 card.appendChild(preco);
                 card.appendChild(categoria);
+                card.appendChild(botaoCompra);
 
                 containerProdutos.appendChild(card);
             });
