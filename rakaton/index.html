@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>teste</title>
+</head>
+<body>
+
+     <header>
+        <h1>FakeStore Challenge</h1>
+    </header>
+
+    <main class="container">
+        <section id="product-list" class="product-list-grid">
+            <h2>Produtos Disponíveis</h2>
+            </section>
+
+        <aside id="cart-container" class="cart-container">
+            <h2>Meu Carrinho</h2>
+            <div id="cart-items" class="cart-items">
+                <p class="empty-cart-message">O carrinho está vazio.</p>
+            </div>
+            
+            <div class="cart-total">
+                <strong>Total:</strong> <span id="cart-total-value">R$ 0.00</span>
+            </div>
+            
+            <button id="checkout-button" class="btn btn-primary" disabled>
+                Finalizar Compra
+            </button>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
