@@ -14,6 +14,14 @@ function listarProdutos() {
 
             data.forEach(produto => {
 
+                const chaveEstoque = `estoque_${produto.id}`;
+                let estoqueDisponivel = localStorage.getItem(chaveEstoque);
+
+                if (estoqueDisponivel === null) {
+                    estoqueDisponivel = 20;
+                    localStorage.setItem(chaveEstoque, estoqueDisponivel);
+                }
+
                 const card = document.createElement('div');
                 card.classList.add('card-produto');
 
@@ -31,6 +39,10 @@ function listarProdutos() {
                 const categoria = document.createElement('p');
                 categoria.classList.add('categoria');
                 categoria.textContent = produto.category;
+
+                const estoqueTexto = document.createElement('p');
+                estoqueTexto.id = `estoque-texto_${produto.id}`;
+                estoqueTexto.textContent = `Estoque: ${estoqueDisponivel}`;
 
                 const botaoCompra = document.createElement('button');
                 botaoCompra.textContent = "Adicionar ao carrinho";
