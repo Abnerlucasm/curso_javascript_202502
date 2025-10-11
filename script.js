@@ -61,3 +61,33 @@ function listarProdutos() {
             containerProdutos.innerHTML = '<p>Não foi possível carregar os produtos. Tente novamente mais tarde.</p>';
         });
 }
+
+function adicionaCarrinho(produtoId) {
+    const chaveEstoque = `estoque_${produtoId}`;
+    let estoqueAtual = parseInt(localStorage.getItem(chaveEstoque));
+
+    if (estoqueAtual > 0) {
+        estoqueAtual--;
+        localStorage.setItem(chaveEstoque, estoqueAtual);
+
+        const estoqueTexto = document.getElementById(`estoque-texto_${produtoId}`);
+        if (estoqueTexto) {
+            estoqueTexto.textContent = `Estoque: ${estoqueAtual}`;
+        }
+
+        const itemNoCarrinho = carrinho.find(item => item.id === produtoId);
+
+        if (itemNoCarrinho) {
+
+            itemNoCarrinho.quantidade++;
+        } else {
+            const produtoParaAdd = listaDeProdutos.find(p => p.id === produtoId);
+            if (produtoParaAdd) {
+                carrinho.push({ ...produtoParaAdd, quantidade: 1 });
+            }
+        }
+
+    } else {
+        alert('Produto esgotado!');
+    }
+}
