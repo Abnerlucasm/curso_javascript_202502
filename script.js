@@ -87,7 +87,29 @@ function adicionaCarrinho(produtoId) {
             }
         }
 
+        atualizarVisualizacaoCarrinho();
+
     } else {
         alert('Produto esgotado!');
+    }
+
+    function atualizarVisualizacaoCarrinho() {
+        const containerCarrinho = document.getElementById('carrinho-itens');
+        containerCarrinho.innerHTML = '';
+
+        if (carrinho.length === 0) {
+            containerCarrinho.innerHTML = '<p>O carrinho está vazio.</p>';
+            return;
+        }
+
+        carrinho.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item-carrinho';
+            itemDiv.innerHTML = `
+            <span>${item.title} (x${item.quantidade})</span>
+            <span>R$ ${(item.price * item.quantidade).toFixed(2)}</span>
+        `;
+            containerCarrinho.appendChild(itemDiv);
+        });
     }
 }
