@@ -11,10 +11,22 @@ function carregarProdutos() {
   fetch(API_URL)
     .then(res => res.json())
     .then(data => {
-      produtos = data;
+      produtos = data.map(produto => {
+        const chave = `quantidade_${produto.id}`;
+        let quantidade = localStorage.getItem(chave);
+
+        if (quantidade === null) {
+          quantidade = 20;
+          localStorage.setItem(chave, quantidade);
+        }
+
+        return { ...produto, quantidade: parseInt(quantidade, 10) };
+      });
+
       renderizarProdutos();
     });
 }
+
 
 function renderizarProdutos(){
   produtosContainer.innerHTML = '';
@@ -27,7 +39,8 @@ function renderizarProdutos(){
     <p>${produto.description}</p>
     <p>Preço: R$ :${produto.price.toFixed(2)}</p>
     <p>Categoria: ${produto.category}</p>
-    <button onclick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>`;
+    <p>Disponível: ${produto.quantidade}</p>
+    <button onclick="adicionarAoCarrinho(${produto.id})" ${produto.quantidade === 0 ? 'disabled' : ''}>Adicionar ao Carrinho</button>`;
     produtosContainer.appendChild(card)
   });
 }
@@ -36,13 +49,16 @@ function adicionarAoCarrinho(id){
   const produto = produtos.find(p => p.id === id);
   if (!produto) return;
 
+  produto.quantidade -= 1;
+  localStorage.setItem(`quantidade_${produto.id}`, produto.quantidade);
+
   const itemExitente = carrinho.find(item => item.id === id);
   if (itemExitente)
     itemExitente.quantidade += 1;
   else
     carrinho.push({ ...produto, quantidade: 1});
   atualizarCarrinho();
-  
+  renderizarProdutos();
 }
 
 function atualizarCarrinho(){
@@ -64,7 +80,7 @@ function atualizarCarrinho(){
 
 function finalizarCompra(){
   if (carrinho.length === 0) return alert('Carrinho vazio!');
-  
+
   carrinho = []
   atualizarCarrinho();
   renderizarProdutos();
