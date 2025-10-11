@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulação Hackathon - Loja Virtual</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        header {
+            background: #000;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        #produtos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            padding-right: 340px; /* Espaço para o carrinho fixo */
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(45, 45, 168, 0.1);
+            padding: 1rem;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 420px;
+            justify-content: space-between;
+        }
+        .card img {
+            max-width: 120px;
+            max-height: 120px;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+        .card p {
+            font-size: 0.9rem;
+            height: 70px;
+            overflow-y: auto;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            text-align: left;
+        }
+        .card button {
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #328f40;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .card button:hover {
+            background: #175421;
+        }
+        .quantidade {
+            margin: 0.5rem 0 0.5rem 0;
+            font-weight: bold;
+            color: #000000;
+            align-self: center;
+        }
+        .card.indisponivel {
+            opacity: 0.5;
+            filter: grayscale(0.7);
+            border: 2px solid #35bb49;
+        }
+        .card.indisponivel button {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+        #carrinho {
+            position: fixed;
+            top: 130px;
+            right: 0;
+            width: 320px;
+            background: #fff;
+            border-radius: 12px 0 0 12px;
+            box-shadow: -2px 2px 16px rgba(0,0,0,0.12);
+            padding: 1.5rem 1rem 1rem 1.5rem;
+            z-index: 100;
+            overflow-y: auto;
+            transition: box-shadow 0.2s;
+        }
+        #carrinho h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: #328f40;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        #carrinho-lista {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        #carrinho-lista li {
+            background: #f5f5f5;
+            border-radius: 6px;
+            margin-bottom: 0.7rem;
+            padding: 0.7rem 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1rem;
+        }
+        #carrinho-lista button {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 0.3rem 0.7rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin-left: 10px;
+            transition: background 0.2s;
+        }
+        #carrinho-lista button:hover {
+            background: #c0392b;
+        }
+        #total {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #222;
+            margin-bottom: 1rem;
+        }
+        #finalizar-compra {
+            width: 100%;
+            background: #328f40;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 0.7rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #finalizar-compra:hover {
+            background: #175421;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Loja Virtual - Simulação Hackathon</h1>
+    </header>
+
+    <div id="mensagem" style="display:none; text-align:center; margin: 1rem auto; padding:1rem; background:#d4edda; color:#155724; border:1px solid #c3e6cb; border-radius:8px; max-width:400px;"></div>
+
+    <section id="produtos"></section>
+
+    <section id="carrinho">
+        <h2>Carrinho</h2>
+        <ul id="carrinho-lista"></ul>
+        <p id="total">Total: R$ 0,00</p>
+        <button id="finalizar-compra">Finalizar Compra</button>
+    </section>
+
+    <script src="loja.js"></script>
+</body>
+</html>
