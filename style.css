@@ -1,0 +1,118 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 30px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.produto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card-produto {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-produto img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.card-produto h3 {
+  font-size: 1.1rem;
+  height: 50px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.card-produto .preco {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #28a745;
+  margin: 10px 0;
+}
+
+.card-produto p {
+  margin: 5px 0;
+}
+
+.card-produto button {
+  background-color: #28a745;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.card-produto button:hover {
+  background-color: #218838;
+}
+
+#carrinho-container {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#carrinho-container h1 {
+  margin-top: 0;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.item-carrinho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.item-carrinho:last-child {
+  border-bottom: none;
+}
+
+.item-carrinho span:first-child {
+  flex-basis: 70%;
+}
+
+.item-carrinho span:last-child {
+  font-weight: bold;
+}
