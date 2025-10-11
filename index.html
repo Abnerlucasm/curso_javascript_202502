@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja</title>
+</head>
+<body style="font-family: Arial, sans-serif; background:#f3f4f6; color:#333; padding:20px;">
+  
+  <h1 style="margin-bottom:15px;">Lista de Produtos</h1>
+  <div style="display:flex; gap:20px;">
+    <div style="flex:1">
+      <div>
+        <button id="btnApi" 
+          style="background:#2563eb; color:white; border:none; padding:10px 16px; border-radius:6px; cursor:pointer; margin-right:5px;">
+          Buscar da API
+        </button>
+        
+        <button id="btnStorage" 
+          style="background:#16a34a; color:white; border:none; padding:10px 16px; border-radius:6px; cursor:pointer;">
+          Carregar do Storage
+        </button>
+        
+        <button id="btnRestock" 
+          style="background:#f59e0b; color:white; border:none; padding:10px 16px; border-radius:6px; cursor:pointer; margin-left:6px;">
+          Restock Test
+        </button>
+      </div>
+
+      <ul id="lista" 
+          style="margin-top:20px; list-style:none; display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; padding:0;">
+      </ul>
+    </div>
+
+    <aside id="cart" style="width:360px; background:white; border-radius:8px; padding:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+      <h2 style="margin-top:0">Carrinho</h2>
+      <div id="cart-items" style="min-height:120px"></div>
+      <div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;">
+        <strong>Total:</strong>
+        <span id="cart-total">R$ 0,00</span>
+      </div>
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button id="btnClear" style="flex:1; background:#ef4444; color:white; border:none; padding:8px; border-radius:6px;">Limpar</button>
+        <button id="btnBuy" style="flex:1; background:#059669; color:white; border:none; padding:8px; border-radius:6px;">Comprar</button>
+      </div>
+      <small style="display:block; margin-top:8px; color:#555">O carrinho não é persistente — recarregue e ele será resetado. Quantidades dos produtos são persistidas.</small>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
