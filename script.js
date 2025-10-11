@@ -46,6 +46,8 @@ function listarProdutos() {
 
                 const botaoCompra = document.createElement('button');
                 botaoCompra.textContent = "Adicionar ao carrinho";
+                botaoCompra.onclick = () => adicionaCarrinho(produto.id);
+
 
                 card.appendChild(imagem);
                 card.appendChild(titulo);
