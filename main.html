@@ -1,34 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulação - Aula</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>Simulação - Aula</h1>
+    <input type="text" id="search" placeholder="Buscar por nome">
+    <input type="number" id="precoMinimo" placeholder="Preço mínimo" min="0">
+    <input type="number" id="precoMaximo" placeholder="Preço máximo" min="0">
+    <button id="btnFiltro">Filtrar</button>
+  </header>
+  <main>
+    <section id="produtos"></section>
+    <aside id="carrinho">
+      <h2>Carrinho</h2>
+      <ul id="itensCarrinho"></ul>
+      <p id="totalCarrinho">Total: R$ 0,00</p>
+      <button id="finalizar">Finalizar Compra</button>
+    </aside>
+  </main>
 
-    <header>
-        <h1 id = "loja">Simulação - Aula</h1>
-        <input type="text" id="search" placeholder="Buscar por nome">
-        <select id="categoryFilter">
-            <option value="">Todas as categorias</option>
-            <option value = "Roupas">Roupas</option>
-        </select>
-        <input type = "number" id ="precoMinimo" placeholder = "Preço minimo" min = "0">
-        <input type = "number" id = "precoMaximo" placeholder = "Preço maximo" min = "0">
-        <button id = "btnFiltro">Filtar</button>
-    </header>
-
-    <main>
-        <section id = "produtos"></section>
-        <aside id = "carrinho" >
-            <h2>Carrinho de Compras</h2>
-            <ul id = "itensCarrinho"></ul>
-            <div id = totalCarrinho> Total: R$ </div>
-            <button id = "finalizar">Finalizar Compra</button>
-        </aside>
-    </main>
-    <script src="js/app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

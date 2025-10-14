@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fb;
+  color: #333;
+}
+
+header {
+  width: 100%;
+  padding: 20px 8%;
+  background: #007bff;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+header h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+header input,
+header button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+header input {
+  flex: 1;
+  min-width: 160px;
+}
+
+header button {
+  background: #0056d2;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header button:hover {
+  background: #003d9a;
+}
+
+main {
+  display: flex;
+  gap: 40px;
+  padding: 40px 8%;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Produtos */
+#produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  flex: 2;
+}
+
+.produto {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.produto:hover {
+  transform: translateY(-5px);
+}
+
+.produto img {
+  height: 150px;
+  object-fit: contain;
+}
+
+.produto h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.produto button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.produto button:hover {
+  background: #0056d2;
+}
+
+/* Carrinho */
+#carrinho {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#carrinho h2 {
+  margin-bottom: 10px;
+}
+
+#itensCarrinho {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+#finalizar {
+  width: 100%;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#finalizar:hover {
+  background: #1e7e34;
+}
