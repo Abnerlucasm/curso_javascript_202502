@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios JavaScript - Aulas 1 a 7</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #f0f4f7, #d9e2ec);
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1e3a8a;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        section {
+            background: #ffffffcc;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            color: #1e40af;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #1e3a8a;
+            padding-bottom: 5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        input[type=text], input[type=number] {
+            width: 220px;
+            padding: 7px 10px;
+            margin-top: 5px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+
+        input[type=text]:focus, input[type=number]:focus {
+            border-color: #1e40af;
+            outline: none;
+        }
+
+        button {
+            padding: 7px 15px;
+            margin-top: 10px;
+            background: #1e40af;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
+        }
+
+        pre {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            border-left: 4px solid #1e40af;
+        }
+
+        input, button { font-size: 14px; }
+
+        @media (max-width: 600px) {
+            input[type=text], input[type=number] { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercícios JavaScript - Aulas 1 a 7</h1>
+
+    <section>
+        <h2>Aula 1 - Variáveis e Operadores</h2>
+        <label>Exercício 1: Seu nome
+            <input type="text" id="inputNome" placeholder="Digite seu nome">
+        </label>
+        <button onclick="exNome()">Executar</button>
+        <pre id="saidaNome"></pre>
+
+        <label>Exercício 2: Dois números
+            <input type="number" id="inputNumeroA" placeholder="Número A">
+            <input type="number" id="inputNumeroB" placeholder="Número B">
+        </label>
+        <button onclick="exOperacoesNumericas()">Executar</button>
+        <pre id="saidaOperacoes"></pre>
+
+        <label>Exercício 3: Verificar par ou ímpar
+            <input type="number" id="inputParImpar" placeholder="Digite um número">
+        </label>
+        <button onclick="exParOuImpar()">Executar</button>
+        <pre id="saidaParImpar"></pre>
+    </section>
+
+    <section>
+        <h2>Aula 2 - Estruturas de Controle</h2>
+        <label>Exercício 4: Idade
+            <input type="number" id="inputIdade" placeholder="Digite sua idade">
+        </label>
+        <button onclick="exVerificaIdade()">Executar</button>
+        <pre id="saidaIdade"></pre>
+
+        <button onclick="exNumeros1a10()">Exercício 5: Números 1 a 10</button>
+        <pre id="saidaNumeros"></pre>
+
+        <label>Exercício 6: Lista de nomes (5 nomes separados por vírgula)
+            <input type="text" id="inputNomes" placeholder="Ana,Bruno,Carlos,Diana,Eduardo">
+        </label>
+        <button onclick="exListaNomes()">Executar</button>
+        <pre id="saidaNomes"></pre>
+    </section>
+
+    <section>
+        <h2>Aula 3 - Funções</h2>
+        <label>Exercício 7: Soma de dois números
+            <input type="number" id="inputSomaA" placeholder="Número A">
+            <input type="number" id="inputSomaB" placeholder="Número B">
+        </label>
+        <button onclick="exSoma()">Executar</button>
+        <pre id="saidaSoma"></pre>
+
+        <label>Exercício 8: Verificar positivo ou negativo
+            <input type="number" id="inputPosNeg" placeholder="Digite um número">
+        </label>
+        <button onclick="exPositivoOuNegativo()">Executar</button>
+        <pre id="saidaPosNeg"></pre>
+
+        <label>Exercício 9: Maior de dois números
+            <input type="number" id="inputMaiorA" placeholder="Número A">
+            <input type="number" id="inputMaiorB" placeholder="Número B">
+        </label>
+        <button onclick="exMaiorNumero()">Executar</button>
+        <pre id="saidaMaior"></pre>
+    </section>
+
+    <section>
+        <h2>Aula 4 - Objetos e Arrays</h2>
+        <label>Exercício 10: Objeto pessoa
+            <input type="text" id="inputPessoaNome" placeholder="Nome">
+            <input type="number" id="inputPessoaIdade" placeholder="Idade">
+            <input type="text" id="inputPessoaProfissao" placeholder="Profissão">
+        </label>
+        <button onclick="exObjetoPessoa()">Executar</button>
+        <pre id="saidaPessoa"></pre>
+
+        <label>Exercício 11: Produtos (nome e preço, separados por vírgula, ex: Caneta-2.5,Caderno-15)
+            <input type="text" id="inputProdutos" placeholder="Nome-Preço,Nome-Preço,...">
+        </label>
+        <button onclick="exListaProdutos()">Executar</button>
+        <pre id="saidaProdutos"></pre>
+
+        <label>Exercício 12: Saudação personalizada
+            <input type="text" id="inputSaudacaoNome" placeholder="Nome">
+        </label>
+        <button onclick="exSaudacaoPessoa()">Executar</button>
+        <pre id="saidaSaudacao"></pre>
+    </section>
+
+    <section>
+        <h2>Aula 5 - Eventos e Fetch</h2>
+        <button onclick="exBotaoClicado()">Exercício 13: Botão clicado</button>
+        <pre id="saidaBotao"></pre>
+
+        <button onclick="exFetchAPI()">Exercício 14: Fetch API</button>
+        <pre id="saidaFetch"></pre>
+
+        <button onclick="exPromiseAtraso()">Exercício 15: Promise com atraso 2s</button>
+        <pre id="saidaPromise"></pre>
+    </section>
+
+    <section>
+        <h2>Aula 6 - APIs e Front-end</h2>
+        <button onclick="exMostrarTitulosAPI()">Exercício 16: Exibir títulos da API</button>
+        <pre id="saidaTitulos"></pre>
+
+        <button onclick="exListaProdutosHTML()">Exercício 17: Lista de produtos HTML</button>
+        <pre id="saidaListaHTML"></pre>
+
+        <button onclick="exAtualizarLista()">Exercício 18: Atualizar lista</button>
+        <pre id="saidaAtualizarLista"></pre>
+    </section>
+
+    <section>
+        <h2>Aula 7 - Mini Aplicação</h2>
+        <label>Exercício 19: Adicionar produto ao array
+            <input type="text" id="inputProdutoNome" placeholder="Nome do produto">
+            <input type="number" id="inputProdutoPreco" placeholder="Preço">
+        </label>
+        <button onclick="exAdicionarProdutoArray()">Executar</button>
+        <pre id="saidaAdicionarProduto"></pre>
+
+        <label>Exercício 20: Carrinho de compras
+            <input type="text" id="inputCarrinhoAcao" placeholder="Digite 'adicionar' ou 'remover'">
+            <input type="text" id="inputCarrinhoNome" placeholder="Nome do produto">
+            <input type="number" id="inputCarrinhoPreco" placeholder="Preço (apenas adicionar)">
+        </label>
+        <button onclick="exCarrinho()">Executar</button>
+        <pre id="saidaCarrinho"></pre>
+    </section>
+</body>
+<script src="exercicios.js"></script>
+</html>
