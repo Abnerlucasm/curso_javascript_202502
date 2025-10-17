@@ -10,13 +10,11 @@ async function carregarProdutos() {
   const resposta = await fetch("https://fakestoreapi.com/products");
   const dados = await resposta.json();
 
-  // adiciona uma quantidade inicial fixa (ex: 10)
   produtos = dados.map(p => ({ ...p, quantidade: 10 }));
 
   mostrarProdutos();
 }
 
-// Exibir os produtos na tela
 function mostrarProdutos() {
   produtosContainer.innerHTML = "";
 
