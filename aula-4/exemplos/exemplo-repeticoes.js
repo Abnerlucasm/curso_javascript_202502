@@ -2,7 +2,7 @@ let lista = [];
 
 function renderizarLista() {
     const listaHtml = document.getElementById("lista");
-    listaHtml.innerHTML = "";
+    listaHtml.innerHTML = " ";
 
     lista.forEach((item)=>{
         const li = document.createElement("li");

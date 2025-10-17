@@ -25,7 +25,7 @@ function adicionaAluno() {
         document.getElementById("nome").value = "";
         document.getElementById("idade").value = "";
     } else {
-        alert("Preencha os dois campos!");
+        alert("Preencha os dois campos");
     }
 }
 
