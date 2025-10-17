@@ -1,6 +1,6 @@
 function carregarDados() {
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "dados.json");
+  xhr.open("GET", "dados.json") ;
   xhr.onload = function () {
     if (xhr.status === 200) {
       const dados = JSON.parse(xhr.responseText);

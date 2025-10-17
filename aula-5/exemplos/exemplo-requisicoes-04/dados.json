@@ -7,6 +7,6 @@
   { "id": 6, "nome": "Notebook", "preco": 4500, "estoque": 7 },
   { "id": 7, "nome": "Placa de Vídeo", "preco": 2800, "estoque": 3 },
   { "id": 8, "nome": "Fonte 600W", "preco": 350, "estoque": 10 },
-  { "id": 9, "nome": "Memória RAM 16GB", "preco": 400, "estoque": 18 },
+  { "id": 9, "nome": "Memória RAM 16GB", "preco": 400, "estoque": 18 } ,
   { "id": 10, "nome": "SSD 1TB", "preco": 500, "estoque": 25 }
 ]

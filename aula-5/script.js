@@ -26,7 +26,7 @@ function atualizarLista() {
     btnComprar.style.cursor = "pointer";
 
     btnComprar.onclick = function () {
-      comprarProduto(p.cod);
+      comprarProduto(p.cod) ;
     };
 
     item.appendChild(btnComprar);

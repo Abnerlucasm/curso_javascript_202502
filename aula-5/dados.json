@@ -8,7 +8,7 @@
     },
     {
       "cod": 2,
-      "nome": "Smartphone",
+      "nome": "Smartphone" ,
       "preco": 2300.00,
       "estoque": 30
     },

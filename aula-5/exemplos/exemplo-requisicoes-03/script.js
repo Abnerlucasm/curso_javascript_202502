@@ -1,5 +1,5 @@
 function buscarPorId() {
-    const idTexto = document.getElementById("busca").value;
+    const idTexto = document.getElementById("busca").value ;
     const id = parseFloat(idTexto);
 
   const xhr = new XMLHttpRequest();

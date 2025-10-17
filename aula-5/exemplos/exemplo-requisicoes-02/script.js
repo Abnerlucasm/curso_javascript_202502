@@ -5,7 +5,7 @@ function listarTodos() {
     if (xhr.status === 200) {
       const dados = JSON.parse(xhr.responseText);
       const lista = document.getElementById("lista");
-      lista.innerHTML = ""; // limpa antes de listar
+      lista.innerHTML = "";  // limpa antes de listar
 
       dados.forEach(item => {
         const li = document.createElement("li");

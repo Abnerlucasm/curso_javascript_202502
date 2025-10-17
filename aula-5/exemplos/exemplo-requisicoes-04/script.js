@@ -6,7 +6,7 @@ function listarProdutos() {
     xhr.open("GET", "dados.json", true);
     xhr.onload = function () {
         if (xhr.status === 200) {
-            produtos = JSON.parse(xhr.responseText); // guarda em variável
+            produtos = JSON.parse(xhr.responseText);  // guarda em variável
             renderizar();
         }
     };
