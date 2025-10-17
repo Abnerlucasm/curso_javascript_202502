@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo Eventos</title>
+</head>
+<body style="height:1600px">
+  <h2>Eventos em ação</h2>
+
+  <button onclick="alert('Você clicou no botão!')">Clique aqui</button>
+  <br><br>
+
+  <input id="texto" type="text" placeholder="Digite seu nome"
+  onkeydown="if(event.key === 'Enter'){ alert(`Seu nome é: ${document.getElementById('texto').value}`); }" />
+  <br><br>
+
+
+
+  <p>Role a página para disparar um evento de scroll.</p>
+  <p id="contagem"></p>
+
+  <script>
+    let contador = 0;
+
+    window.onscroll = function() {
+      const texto = document.getElementById("contagem")
+      contagem.innerText = `A contagem de scroll está em ${contador}`
+      contador +=1;
+    };
+  </script>
+</body>
+</html>
