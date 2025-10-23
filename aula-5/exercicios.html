@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 05 — Exercícios</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; color: #333; line-height: 1.5;">
+
+  <h1 style="color: #2e7d32; margin-bottom: 20px;">Aula 05 — Exercícios</h1>
+
+  <!-- Exercício 01 -->
+  <section style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+    <h2 style="color: #2e7d32;">Exercício 01 — Lista de Produtos</h2>
+
+    <p>
+      Extraia os dados do <code>dados.json</code> e armazene em um <strong>array</strong>.  
+      Liste-os na tela, crie funções para adicionar produtos e realizar compras, atualizando o estoque.
+    </p>
+
+    <h3>Lista de Produtos:</h3>
+    <ul id="lista" style="padding-left: 20px; color: #555; min-height: 50px; border: 1px solid #ccc; border-radius: 5px; background-color: #fff; padding: 10px;">
+      <!-- Produtos serão listados aqui -->
+    </ul>
+
+    <h3 style="margin-top: 20px;">Adicionar Novo Produto:</h3>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+      <input type="text" id="input-cod" placeholder="Código" style="padding: 6px; flex: 1 1 120px;">
+      <input type="text" id="input-nome" placeholder="Nome" style="padding: 6px; flex: 1 1 150px;">
+      <input type="number" id="input-preco" placeholder="Preço" style="padding: 6px; flex: 1 1 100px;">
+      <input type="number" id="input-qtd" placeholder="Estoque" style="padding: 6px; flex: 1 1 100px;">
+      <button id="btn-add" style="background-color: #2e7d32; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer;">
+        Adicionar Produto
+      </button>
+    </div>
+
+    <p id="contador" style="margin-top: 15px; color: #555;">
+      <!-- Aqui será exibido o total de produtos e estoque disponível -->
+    </p>
+  </section>
+
+  <!-- Exercício 02 -->
+  <section style="background-color: #fff3e0; padding: 20px; border-radius: 8px;">
+    <h2 style="color: #ef6c00;">Exercício 02 — Consulta API</h2>
+
+    <p>
+      Consulte a API <code>https://fakestoreapi.com/products</code> informando o ID do produto.  
+      Mostre as informações correspondentes.
+    </p>
+
+    <p>
+        <a href="https://fakestoreapi.com/docs" target="_blank" style="color: #1976d2; text-decoration: underline; font-weight: bold;">
+            Segue link da documentação da API
+        </a>
+    </p>
+
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 10px;">
+      <input type="number" id="input-prod" placeholder="ID do Produto" style="padding: 6px; flex: 1 1 150px;">
+      <button id="btn-search" style="background-color: #ef6c00; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer;">
+        Consultar
+      </button>
+    </div>
+
+    <h3 style="margin-top: 20px;">Resultado da Consulta:</h3>
+    <pre id="out" style="min-height: 50px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #fff; color: #555;">
+      <!-- Resultado do produto será exibido aqui -->
+    </pre>
+  </section>
+
+</body>
+<script src="script.js"></script>
+</html>
