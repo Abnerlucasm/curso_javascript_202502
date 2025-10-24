@@ -1,0 +1,167 @@
+:root{
+    --bg:#0b0b0b;
+    --panel:#0f1720;
+    --muted:#9aa4ad;
+    --accent:#2dd4bf; /* teal */
+    --accent-2:#3b82f6; /* blue for buttons */
+    --card-shadow: 0 8px 24px rgba(2,6,23,0.6);
+    --radius:12px;
+    --glass: rgba(255,255,255,0.03);
+    --text:#e6eef6;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    background: linear-gradient(180deg, var(--bg) 0%, #050505 100%);
+    color:var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:28px;
+}
+
+/* HEADER */
+.site-header{
+    display:flex;
+    justify-content:center;
+    margin-bottom:18px;
+}
+.brand{
+    width:100%;
+    max-width:1100px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+.brand h1{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+    color:var(--text);
+}
+#score-panel{
+    display:flex;
+    gap:16px;
+    align-items:center;
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* GRID LAYOUT */
+.grid{
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: 1fr 380px;
+    gap:22px;
+    align-items:start;
+}
+
+/* COLUMNS */
+.center-column{display:flex;flex-direction:column;gap:18px}
+.right-column{display:flex;flex-direction:column;gap:18px}
+
+/* CARDS */
+.card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:var(--radius);
+    padding:18px;
+    box-shadow:var(--card-shadow);
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+/* Player setup */
+#player-setup label{display:block;margin-bottom:8px;color:var(--muted);font-size:13px}
+.row{display:flex;gap:10px;align-items:center}
+#playerName{
+    flex:1;
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.04);
+    background:var(--panel);
+    color:var(--text);
+    outline:none;
+}
+#playerName::placeholder{color:rgba(255,255,255,0.25)}
+.btn{
+    padding:8px 12px;
+    border-radius:8px;
+    border:0;
+    cursor:pointer;
+    font-weight:600;
+    background:transparent;
+    color:var(--text);
+    transition:transform .08s ease, box-shadow .08s;
+}
+.btn:active{transform:translateY(1px)}
+.btn.primary{
+    background: linear-gradient(90deg,var(--accent-2),#06b6d4);
+    color:#fff;
+    box-shadow:0 6px 18px rgba(59,130,246,0.12);
+}
+.btn.help{
+    background: rgba(255,255,255,0.03);
+    color:var(--accent);
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+/* Quiz card */
+.quiz-card .meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+    color:var(--muted);
+    font-size:13px;
+}
+.question-card h2{
+    margin:0 0 12px 0;
+    font-size:15px;
+    line-height:1.4;
+    color:#fff;
+}
+
+/* Choices */
+.choices{display:flex;flex-direction:column;gap:10px}
+.choice-btn{
+    text-align:left;
+    padding:12px 14px;
+    border-radius:10px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+    border:1px solid rgba(255,255,255,0.03);
+    color:var(--text);
+    cursor:pointer;
+    transition:transform .06s ease, box-shadow .06s;
+}
+.choice-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(2,6,23,0.5)}
+.choice-correct{background:linear-gradient(90deg, rgba(45,212,191,0.12), rgba(59,130,246,0.06));border-color:rgba(45,212,191,0.28);color:#c7ffee}
+.choice-wrong{background:linear-gradient(90deg, rgba(255,77,77,0.06), rgba(255,77,77,0.02));border-color:rgba(255,77,77,0.18);color:#ffdada}
+.choice-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+
+/* Controls */
+.controls{display:flex;justify-content:flex-end;margin-top:14px}
+
+/* Leaderboard */
+.leaderboard-card h3{margin:0 0 12px 0}
+.leaderboard-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.leaderboard-list li{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:8px 10px;border-radius:8px;
+    background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03);
+    color:var(--text);
+}
+
+/* RESULT */
+#result h2{margin-top:0}
+
+/* hidden util */
+.hidden{display:none}
+
+/* responsive */
+@media (max-width:920px){
+    .grid{grid-template-columns:1fr; padding:0 8px}
+    .right-column{order:-1}
+}
