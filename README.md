@@ -3,7 +3,7 @@
 ## Principais informações
 
 - Link da API: `http://187.102.36.3:8091/`
-- [Documentação da API](`http://187.102.36.3:8091/api-docs`)
+- [Documentação da API](http://187.102.36.3:8091/api-docs)
 
 ---
 
