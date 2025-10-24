@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #4721ba;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.oculto {
+  display: none;
+}
+
+button {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+   margin-left: 20px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.botaoResposta {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  background: #007bff;
+  color: white;
+}
+
+.botaoResposta.correta {
+  background: #28a745;
+}
+
+.botaoResposta.errada {
+  background: #dc3545;
+}
+
+#displayPontuacao {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#inputNomeJogador {
+  width: calc(100% - 24px);
+  padding: 10px 12px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+
+#divNomeJogador label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #5a1c49;
+  font-family: 'Roboto', sans-serif;
+}
