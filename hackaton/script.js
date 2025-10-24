@@ -36,3 +36,57 @@ async function startQuiz() {
     });
 }
 
+async function checkAnswer(perguntaId, respostaSelecionada, btn) {
+  const buttons = btn.parentElement.querySelectorAll('button');
+  buttons.forEach(b => b.disabled = true);
+
+  try {
+    console.log('Verificando resposta para pergunta ID:', perguntaId);
+    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    const url = `http://187.102.36.3:8091/api/respostas/${perguntaId}`;
+
+    const response = await fetch(proxy + url, {
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+        }
+    });
+
+    const data = await response.json();
+    const respostaCorreta = data.respostas;
+
+    if (respostaSelecionada === respostaCorreta) {
+      score++;
+      btn.style.backgroundColor = 'green';
+    } else {
+      errors++;
+      btn.style.backgroundColor = 'red';
+    }
+
+    updateScore();
+  } catch (error) {
+    console.error('Erro ao buscar resposta correta:', error);
+    btn.style.backgroundColor = 'gray';
+  }
+}
+
+function updateScore() {
+  document.getElementById('scoreBoard').innerHTML = `
+    <p>Acertos: ${score} | Erros: ${errors}</p>
+  `;
+
+  if (score + errors === 5) {
+    leaderboard.push({ name: currentPlayer, score });
+    leaderboard.sort((a, b) => b.score - a.score);
+    renderLeaderboard();
+  }
+}
+
+function renderLeaderboard() {
+  const list = document.getElementById('leaderboard');
+  list.innerHTML = '';
+  leaderboard.forEach(player => {
+    const li = document.createElement('li');
+    li.textContent = `${player.name}: ${player.score} pts`;
+    list.appendChild(li);
+  });
+}
