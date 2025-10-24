@@ -5,7 +5,7 @@ let leaderboard = [];
 
 async function startQuiz() {
     const proxy = 'https://cors-anywhere.herokuapp.com/';
-    const url = 'http://187.102.36.3:8091/api/perguntas';
+    const url = 'http://187.102.36.3:8091/api/perguntas/5';
 
     currentPlayer = document.getElementById('playerName').value.trim();
 
@@ -45,11 +45,7 @@ async function checkAnswer(perguntaId, respostaSelecionada, btn) {
     const proxy = 'https://cors-anywhere.herokuapp.com/';
     const url = `http://187.102.36.3:8091/api/respostas/${perguntaId}`;
 
-    const response = await fetch(proxy + url, {
-    headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-        }
-    });
+    const response = await fetch(proxy + url);
 
     const data = await response.json();
     const respostaCorreta = data.respostas;
@@ -77,6 +73,9 @@ function updateScore() {
   if (score + errors === 5) {
     leaderboard.push({ name: currentPlayer, score });
     leaderboard.sort((a, b) => b.score - a.score);
+
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+
     renderLeaderboard();
   }
 }
@@ -84,9 +83,29 @@ function updateScore() {
 function renderLeaderboard() {
   const list = document.getElementById('leaderboard');
   list.innerHTML = '';
-  leaderboard.forEach(player => {
+
+  leaderboard.forEach((player, index) => {
     const li = document.createElement('li');
-    li.textContent = `${player.name}: ${player.score} pts`;
+    li.textContent = `${index + 1}. ${player.name}: ${player.score} pts`;
+
+    if (index === 0) li.style.color = 'gold';
+    else if (index === 1) li.style.color = 'silver';
+    else if (index === 2) li.style.color = 'bronze';
+
     list.appendChild(li);
   });
 }
+
+function clearLeaderboard() {
+  localStorage.removeItem('leaderboard');
+  leaderboard = [];
+  renderLeaderboard();
+}
+
+window.onload = () => {
+  const saved = localStorage.getItem('leaderboard');
+  if (saved) {
+    leaderboard = JSON.parse(saved);
+    renderLeaderboard();
+  }
+};
