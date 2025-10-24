@@ -4,50 +4,63 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Desafio Hackathon — Quiz</title>
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-    <header>
-        <h1>Quiz Interativo</h1>
-        <div id="score-panel">
-            <div id="score">Acertos: 0 | Erros: 0</div>
-            <div id="progress">Pergunta 0 de 5</div>
+    <header class="site-header">
+        <div class="brand">
+            <h1>Quiz Interativo</h1>
+            <div id="score-panel">
+                <div id="score">Acertos: 0 | Erros: 0</div>
+                <div id="progress">Pergunta 0 de 5</div>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section id="player-setup">
-            <label for="playerName">Nome do jogador:</label>
-            <input id="playerName" type="text" placeholder="Seu nome" autofocus required />
-            <button id="startBtn" class="btn" type="button">Começar</button>
-            <p id="welcome" class="hidden" role="status" aria-live="polite" aria-atomic="true"></p>
-        </section>
+    <main class="grid">
+        <div class="center-column">
+            <section id="player-setup" class="card">
+                <label for="playerName">Nome do jogador</label>
+                <div class="row">
+                    <input id="playerName" type="text" placeholder="Seu nome" autofocus required />
+                    <button id="startBtn" class="btn primary" type="button">Começar</button>
+                </div>
+                <p id="welcome" class="welcome hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+            </section>
 
-        <section id="quiz" class="hidden" aria-live="polite">
-            <div id="meta">
-                <span id="timer">Tempo: --</span>
-                <button id="helpBtn" class="btn">Ajuda (eliminar 2)</button>
-            </div>
+            <section id="result" class="card hidden">
+                <h2>Resultado</h2>
+                <p id="finalScore">Você acertou X de 5</p>
+                <button id="playAgainBtn" class="btn" type="button">Jogar novamente</button>
+            </section>
 
-            <article id="question-card">
-                <h2 id="questionText">Pergunta</h2>
-                <div id="choices"></div>
-            </article>
+            <section id="leaderboard-section" class="card leaderboard-card">
+                <h3>Leaderboard</h3>
+                <ol id="leaderboard" class="leaderboard-list"></ol>
+            </section>
+        </div>
 
-            <div id="controls">
-                <button id="nextBtn" class="btn hidden" type="button">Próxima</button>
-            </div>
-        </section>
+        <aside class="right-column">
+            <section id="quiz" class="card quiz-card hidden" aria-live="polite">
+                <div class="meta">
+                    <span id="timer">Tempo: --</span>
+                    <button id="helpBtn" class="btn help" type="button">Ajuda (eliminar 2)</button>
+                </div>
 
-        <section id="result" class="hidden">
-            <h2>Resultado</h2>
-            <p id="finalScore">Você acertou X de 5</p>
-             <button id="playAgainBtn" class="btn" type="button">Jogar novamente</button>
-        </section>
+                <article id="question-card" class="question-card">
+                    <h2 id="questionText">Pergunta</h2>
+                    <div id="choices" class="choices"></div>
+                </article>
 
-        <aside id="leaderboard-section">
-            <h3>Leaderboard</h3>
-            <ol id="leaderboard"></ol>
+                <div id="controls" class="controls">
+                    <button id="nextBtn" class="btn hidden" type="button">Próxima</button>
+                </div>
+            </section>
         </aside>
     </main>
 
