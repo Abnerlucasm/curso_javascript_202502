@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #505050;
+}
+
+.container{
+    border: 1px solid rgb(255, 255, 255, .2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, .8);
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.container h1{
+    text-transform: capitalize;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.container p{
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+#start-screen h2{
+    font-size: 25px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+#start-screen label{
+    font-size: 20px;
+}
+
+.btn-center{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;    
+}
+
+.btn-center .btn{
+    padding: 10px 25px;
+}
+
+#placar span{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#pergunta-texto{
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.btn-alternativa { 
+    display: block; 
+    width: 100%; 
+    margin: 10px 0; 
+    text-align: left; 
+    font-size: 18px;
+}
+
+#final-screen h3{
+    font-size: 20px;
+}
+
+.top-1, .top-2, .top-3 { 
+    list-style-type: none;
+    margin-top: 8px;
+    font-size: 20px;
+} 
+
+.end-btn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-end{
+    padding: 10px 25px;
+}
