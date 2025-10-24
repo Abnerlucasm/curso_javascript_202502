@@ -1,6 +1,6 @@
 :root {
     --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
-    --glass:rgba(255,255,255,0.04); --radius:14px;
+    --glass:rgba(255, 255, 255, 0.04); --radius:14px;
   }
   
   * { box-sizing: border-box; }
@@ -8,8 +8,8 @@
   body {
     font-family: Inter, system-ui, Arial;
     margin: 0;
-    background: linear-gradient(180deg, #a2f488 0%, #081229 60%);
-    color: #f55130;
+    background: linear-gradient(180deg, #88d5f4 0%, #081229 60%);
+    color: #f46d07;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -23,7 +23,7 @@
     background: linear-gradient(180deg, var(--card), #071725);
     border-radius: 18px;
     padding: 28px;
-    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+    box-shadow: 0 10px 30px rgba(227, 227, 12, 0.6);
   }
   
   header {
@@ -52,7 +52,7 @@
     width: 100%;
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(35, 238, 24, 0.159);
     background: transparent;
     color: inherit;
   }
@@ -69,7 +69,7 @@
   
   .btn-ghost {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     color: var(--muted);
   }
   
@@ -82,7 +82,7 @@
   hr {
     margin: 14px 0;
     border: 0;
-    border-top: 1px solid rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
   }
   
   .question { font-size: 18px; margin-bottom: 12px; }
@@ -96,13 +96,13 @@
   .answer {
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.04);
+    border: 1px solid rgba(255, 255, 255, 0.04);
     cursor: pointer;
     background: transparent;
   }
   
   .answer.selected {
-    outline: 3px solid rgba(6,182,212,0.12);
+    outline: 3px solid rgba(75, 212, 6, 0.12);
     background: rgba(6,182,212,0.06);
   }
   
@@ -123,7 +123,7 @@
   .leaderboard {
     margin-top: 20px;
     padding: 12px;
-    background: rgba(0,0,0,0.12);
+    background: rgba(0, 0, 0, 0.12);
   }
   
   .leaderboard ul {
@@ -136,7 +136,7 @@
     padding: 8px 10px;
     border-radius: 8px;
     margin-bottom: 8px;
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.02);
     display: flex;
     justify-content: space-between;
   }
