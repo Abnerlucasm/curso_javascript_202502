@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Dinâmico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Quiz Dinâmico</h1>
+    </header>
+
+    <!-- Tela: pedir nome -->
+    <section id="screen-name" class="screen active card">
+      <div class="center">
+        <h2>Antes de começar — diga seu nome</h2>
+        <p class="sub">O nome será usado no placar e para mensagens durante a rodada.</p>
+        <input id="player-name" type="text" placeholder="Digite seu nome" />
+        <div class="buttons">
+          <button id="btn-start">Começar</button>
+          <button id="btn-sample" class="btn-ghost">Exemplo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tela: quiz -->
+    <section id="screen-quiz" class="screen card">
+      <div class="quiz-header">
+        <div>
+          <div class="label">Jogador:</div>
+          <strong id="show-name"></strong>
+        </div>
+        <div class="score">Pergunta <span id="current">1</span>/<span id="total">1</span></div>
+      </div>
+
+      <hr />
+
+      <div id="question-area"></div>
+
+      <div class="footer">
+        <button id="btn-prev" class="btn-ghost">Anterior</button>
+        <div class="actions">
+          <button id="btn-skip" class="btn-ghost">Pular</button>
+          <button id="btn-next">Confirmar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tela: resultado -->
+    <section id="screen-result" class="screen card">
+      <div class="center">
+        <h2 id="result-title">Resultado</h2>
+        <p id="result-text"></p>
+        <div class="buttons">
+          <button id="btn-restart">Jogar novamente</button>
+          <button id="btn-back" class="btn-ghost">Voltar ao início</button>
+        </div>
+
+        <div class="leaderboard card">
+          <h3>Placar</h3>
+          <ul id="leaderboard-list"></ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
