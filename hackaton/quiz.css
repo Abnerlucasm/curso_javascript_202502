@@ -1,13 +1,14 @@
 :root{
-    --bg:#0b0b0b;
+    --bg:#000; /* fundo preto */
     --panel:#0f1720;
     --muted:#9aa4ad;
-    --accent:#2dd4bf; /* teal */
-    --accent-2:#3b82f6; /* blue for buttons */
-    --card-shadow: 0 8px 24px rgba(2,6,23,0.6);
-    --radius:12px;
-    --glass: rgba(255,255,255,0.03);
+    --accent:#2dd4bf;
+    --accent-2:#3b82f6;
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    --radius:14px;
     --text:#e6eef6;
+    --card-width:640px;
+    --side-width:300px;
 }
 
 *{box-sizing:border-box}
@@ -19,7 +20,7 @@ body{
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
-    padding:28px;
+    padding:36px;
 }
 
 /* HEADER */
@@ -33,18 +34,23 @@ body{
     max-width:1100px;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:12px;
+    justify-content:center; /* título centralizado */
+    gap:px;
+    position:relative;
 }
 .brand h1{
     margin:0;
-    font-size:18px;
+    font-size:30px; /* menor */
     font-weight:700;
     color:var(--text);
+    letter-spacing:0.2px;
 }
 #score-panel{
+    position:absolute;
+    right:0;
+    top:2px;
     display:flex;
-    gap:16px;
+    gap:12px;
     align-items:center;
     color:var(--muted);
     font-size:13px;
@@ -55,17 +61,34 @@ body{
     max-width:1100px;
     margin:0 auto;
     display:grid;
-    grid-template-columns: 1fr 380px;
-    gap:22px;
+    grid-template-columns: 1fr var(--side-width);
+    gap:28px;
     align-items:start;
+    min-height:70vh;
 }
 
 /* COLUMNS */
-.center-column{display:flex;flex-direction:column;gap:18px}
-.right-column{display:flex;flex-direction:column;gap:18px}
+.center-column{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    align-items:center; /* elementos centralizados horizontalmente */
+    justify-content:center; /* centraliza verticalmente - perguntas ficarão no meio */
+    min-height:60vh;
+}
+.right-column{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    align-items:center; /* centraliza cards no lado direito */
+    justify-content:flex-start;
+    padding-top:20px;
+}
 
 /* CARDS */
 .card{
+    width:100%;
+    max-width:var(--card-width);
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border-radius:var(--radius);
     padding:18px;
@@ -73,13 +96,25 @@ body{
     border:1px solid rgba(255,255,255,0.03);
 }
 
+/* pequenos ajustes para cards menores no lado direito */
+.small-card{ max-width:260px; width:100% }
+.center-card{ max-width:720px; width:100%; }
+
+/* util para centralizar conteúdo interno quando preciso */
+.centered-content{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:center;
+}
+
 /* Player setup */
-#player-setup label{display:block;margin-bottom:8px;color:var(--muted);font-size:13px}
-.row{display:flex;gap:10px;align-items:center}
+#player-setup label{display:block;margin-bottom:8px;color:var(--muted);font-size:13px;text-align:center}
+.row{display:flex;gap:10px;align-items:center;justify-content:center}
 #playerName{
-    flex:1;
+    width:220px;
     padding:10px 12px;
-    border-radius:8px;
+    border-radius:10px;
     border:1px solid rgba(255,255,255,0.04);
     background:var(--panel);
     color:var(--text);
@@ -88,7 +123,7 @@ body{
 #playerName::placeholder{color:rgba(255,255,255,0.25)}
 .btn{
     padding:8px 12px;
-    border-radius:8px;
+    border-radius:10px;
     border:0;
     cursor:pointer;
     font-weight:600;
@@ -109,6 +144,7 @@ body{
 }
 
 /* Quiz card */
+.quiz-card{ max-width:640px; width:100% }
 .quiz-card .meta{
     display:flex;
     justify-content:space-between;
@@ -119,9 +155,10 @@ body{
 }
 .question-card h2{
     margin:0 0 12px 0;
-    font-size:15px;
+    font-size:18px;
     line-height:1.4;
     color:#fff;
+    min-height:64px;
 }
 
 /* Choices */
@@ -145,13 +182,14 @@ body{
 .controls{display:flex;justify-content:flex-end;margin-top:14px}
 
 /* Leaderboard */
-.leaderboard-card h3{margin:0 0 12px 0}
+.leaderboard-card h3{margin:0 0 12px 0;font-size:15px}
 .leaderboard-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
 .leaderboard-list li{
     display:flex;justify-content:space-between;align-items:center;
     padding:8px 10px;border-radius:8px;
     background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03);
     color:var(--text);
+    font-size:14px;
 }
 
 /* RESULT */
@@ -162,6 +200,10 @@ body{
 
 /* responsive */
 @media (max-width:920px){
-    .grid{grid-template-columns:1fr; padding:0 8px}
-    .right-column{order:-1}
+    .grid{grid-template-columns:1fr; padding:0 12px}
+    .right-column{order:-1; align-items:stretch; justify-content:flex-start}
+    .brand{justify-content:flex-start}
+    #score-panel{position:static;margin-left:auto}
+    #playerName{width:100%}
+    .card{max-width:100%}
 }

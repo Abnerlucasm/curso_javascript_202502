@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Desafio Hackathon — Quiz</title>
+    <title>Quiz Interativo — Hackathon</title>
 
-    <!-- Fonte -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
@@ -24,7 +21,7 @@
 
     <main class="grid">
         <div class="center-column">
-            <section id="player-setup" class="card">
+            <section id="player-setup" class="card center-card">
                 <label for="playerName">Nome do jogador</label>
                 <div class="row">
                     <input id="playerName" type="text" placeholder="Seu nome" autofocus required />
@@ -33,24 +30,9 @@
                 <p id="welcome" class="welcome hidden" role="status" aria-live="polite" aria-atomic="true"></p>
             </section>
 
-            <section id="result" class="card hidden">
-                <h2>Resultado</h2>
-                <p id="finalScore">Você acertou X de 5</p>
-                <button id="playAgainBtn" class="btn" type="button">Jogar novamente</button>
-            </section>
-
-            <section id="leaderboard-section" class="card leaderboard-card">
-                <h3>Leaderboard</h3>
-                <ol id="leaderboard" class="leaderboard-list"></ol>
-            </section>
-        </div>
-
-        <aside class="right-column">
-            <section id="quiz" class="card quiz-card hidden" aria-live="polite">
-                <div class="meta">
-                    <span id="timer">Tempo: --</span>
-                    <button id="helpBtn" class="btn help" type="button">Ajuda (eliminar 2)</button>
-                </div>
+            <!-- quiz move para a coluna central para ficar no meio da página -->
+            <section id="quiz" class="card quiz-card hidden centered-content" aria-live="polite">
+                
 
                 <article id="question-card" class="question-card">
                     <h2 id="questionText">Pergunta</h2>
@@ -60,6 +42,19 @@
                 <div id="controls" class="controls">
                     <button id="nextBtn" class="btn hidden" type="button">Próxima</button>
                 </div>
+            </section>
+
+            <section id="result" class="card hidden center-card">
+                <h2>Resultado</h2>
+                <p id="finalScore">Você acertou X de 5</p>
+                <button id="playAgainBtn" class="btn" type="button">Jogar novamente</button>
+            </section>
+        </div>
+
+        <aside class="right-column">
+            <section id="leaderboard-section" class="card leaderboard-card small-card centered-content">
+                <h3>Leaderboard</h3>
+                <ol id="leaderboard" class="leaderboard-list"></ol>
             </section>
         </aside>
     </main>
