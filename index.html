@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <input type="text" id="input-nome" />
-    <button type="button" onclick="pegaNomeJogador()">Enviar</button>
+    <div id="login-container">
+      <input type="text" id="input-nome" placeholder="Digite seu nome" />
+      <button type="button" onclick="pegaNomeJogador()">Enviar</button>
+    </div>
 
-    <div id="tela-quiz">
+    <div id="tela-quiz" style="display: none">
       <h2 id="quiz-titulo">Boa sorte!</h2>
-
-      <div id="placar" style="font-size: 1.2em; margin: 15px 0">
+      <div id="placar">
         <strong>Acertos: <span id="pontos-acertos">0</span></strong> |
         <strong>Erros: <span id="pontos-erros">0</span></strong>
       </div>
       <div id="quiz-container">
         <p>Carregando perguntas...</p>
       </div>
+    </div>
+
+    <div id="leaderboard">
+      <h2>🏆 Leaderboard 🏆</h2>
+      <ol id="leaderboard-lista">
+        <li>Carregando...</li>
+      </ol>
     </div>
   </body>
   <script src="script.js"></script>
