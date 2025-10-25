@@ -87,11 +87,6 @@ function renderLeaderboard() {
   leaderboard.forEach((player, index) => {
     const li = document.createElement('li');
     li.textContent = `${index + 1}. ${player.name}: ${player.score} pts`;
-
-    if (index === 0) li.style.color = 'gold';
-    else if (index === 1) li.style.color = 'silver';
-    else if (index === 2) li.style.color = 'bronze';
-
     list.appendChild(li);
   });
 }

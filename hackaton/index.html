@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Quiz Hackathon</title>
-  <style>
-    body { font-family: Arial; padding: 20px; }
-    .question { margin-bottom: 20px; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Quiz Hackathon</h1>
-  <input type="text" id="playerName" placeholder="Digite seu nome">
-  <button onclick="startQuiz()">Iniciar Quiz</button>
+    <h1>Quiz Hackathon</h1>
+    <div id="playerForm">
+        <input type="text" id="playerName" placeholder="Digite seu nome">
+        <button onclick="startQuiz()">Iniciar Quiz</button>
+    </div>
 
-  <div id="quizContainer"></div>
-  <div id="scoreBoard"></div>
-  <h2>Leaderboard</h2>
-  <ul id="leaderboard"></ul>
+    <div id="quizContainer"></div>
+    <div id="scoreBoard"></div>
 
-  <button onclick="clearLeaderboard()">Limpar Leaderboard</button>
+    <div id="leaderboardHeader">
+        <h2>Leaderboard</h2>
+        <button onclick="clearLeaderboard()" id="clearBtn">Limpar</button>
+    </div>
+    <ul id="leaderboard"></ul>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
