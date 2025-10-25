@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Tela inicial -->
+    <div id="start-screen" class="screen active">
+      <h1>🎯 Desafio Hackathon Quiz</h1>
+      <input type="text" id="player-name" placeholder="Digite seu nome" />
+      <button id="start-btn">Começar</button>
+    </div>
+
+    <!-- Mensagem de boa sorte -->
+    <div id="welcome-screen" class="screen">
+      <h2 id="welcome-message"></h2>
+    </div>
+
+    <!-- Tela do quiz -->
+    <div id="quiz-screen" class="screen">
+      <div id="progress"></div>
+      <h2 id="question"></h2>
+      <div id="options"></div>
+    </div>
+
+    <!-- Tela de resultados -->
+    <div id="result-screen" class="screen">
+      <h2>Resultado Final</h2>
+      <p id="score-text"></p>
+      <button id="restart-btn">Jogar novamente</button>
+
+      <h3>🏆 Leaderboard</h3>
+      <ol id="leaderboard"></ol>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
