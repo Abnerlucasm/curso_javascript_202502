@@ -1,39 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>teste</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon Quiz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <!-- Tela inicial -->
+    <div id="start-screen" class="screen active">
+      <h1>🎯 Desafio Hackathon Quiz</h1>
+      <input type="text" id="player-name" placeholder="Digite seu nome" />
+      <button id="start-btn">Começar</button>
+    </div>
 
-     <header>
-        <h1>FakeStore Challenge</h1>
-    </header>
+    <!-- Mensagem de boa sorte -->
+    <div id="welcome-screen" class="screen">
+      <h2 id="welcome-message"></h2>
+    </div>
 
-    <main class="container">
-        <section id="product-list" class="product-list-grid">
-            <h2>Produtos Disponíveis</h2>
-            </section>
+    <!-- Tela do quiz -->
+    <div id="quiz-screen" class="screen">
+      <div id="progress"></div>
+      <h2 id="question"></h2>
+      <div id="options"></div>
+    </div>
 
-        <aside id="cart-container" class="cart-container">
-            <h2>Meu Carrinho</h2>
-            <div id="cart-items" class="cart-items">
-                <p class="empty-cart-message">O carrinho está vazio.</p>
-            </div>
-            
-            <div class="cart-total">
-                <strong>Total:</strong> <span id="cart-total-value">R$ 0.00</span>
-            </div>
-            
-            <button id="checkout-button" class="btn btn-primary" disabled>
-                Finalizar Compra
-            </button>
-        </aside>
-    </main>
+    <!-- Tela de resultados -->
+    <div id="result-screen" class="screen">
+      <h2>Resultado Final</h2>
+      <p id="score-text"></p>
+      <button id="restart-btn">Jogar novamente</button>
 
-    <script src="script.js"></script>
-    
+      <h3>🏆 Leaderboard</h3>
+      <ol id="leaderboard"></ol>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
 </body>
 </html>
