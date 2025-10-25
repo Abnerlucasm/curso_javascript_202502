@@ -35,6 +35,8 @@ function pegaNomeJogador() {
     buscarPerguntas(5);
 }
 
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 async function buscarPerguntas(numeroDePerguntas) {
     const url = `${apiUrlPerguntas}/${numeroDePerguntas}`;
     console.log(`Buscando ${numeroDePerguntas} perguntas da API...`);
@@ -45,8 +47,13 @@ async function buscarPerguntas(numeroDePerguntas) {
     if (spanErros) spanErros.textContent = erros;
 
     try {
+        await delay(300); // Adiciona um pequeno delay inicial
         const response = await fetch(url);
         if (!response.ok) {
+            // Se o erro for 429, avisa o usuário sobre o proxy
+            if (response.status === 429) {
+                throw new Error(`Erro na API de Perguntas: ${response.status} (Too Many Requests - Limite do proxy CORS atingido. Aguarde um pouco e tente novamente, ou ative o acesso ao proxy.)`);
+            }
             throw new Error(`Erro na API de Perguntas: ${response.status}`);
         }
         const data = await response.json();
@@ -60,43 +67,57 @@ async function buscarPerguntas(numeroDePerguntas) {
     } catch (error) {
         console.error("Falha ao carregar o quiz (perguntas):", error);
         if (quizContainer) {
-            quizContainer.innerHTML = `<p style="color: red;"><b>Falha ao carregar as perguntas.</b><br>Verifique o console (F12) e a ativação do proxy CORS.</p>`;
+            quizContainer.innerHTML = `<p style="color: red;"><b>Falha ao carregar as perguntas.</b><br>${error.message}<br>Verifique o console (F12) e a ativação do proxy CORS.</p>`;
         }
         alert("Não foi possível carregar as perguntas. Verifique o console.");
     }
 }
 
 async function buscarRespostas(listaDePerguntas) {
-    console.log("Buscando gabarito da API...");
+    console.log("Buscando gabarito da API (sequencialmente)...");
     gabarito = {};
     if (!listaDePerguntas || listaDePerguntas.length === 0) return;
 
     try {
-        const promessasDeRespostas = listaDePerguntas.map(async (pergunta) => {
+        for (const pergunta of listaDePerguntas) {
             const urlResposta = `${apiUrlRespostas}/${pergunta.id}`;
             try {
+                console.log(`Buscando resposta para ID ${pergunta.id}...`);
                 const response = await fetch(urlResposta);
+
                 if (!response.ok) {
+                    if (response.status === 429) {
+                        console.warn(`Rate limit atingido para Resposta ID ${pergunta.id}. Esperando 1 segundo...`);
+                        await delay(1000);
+                        console.error(`Ainda bloqueado após espera para Resposta ID ${pergunta.id}. Pulando.`);
+                        continue;
+                    }
                     console.error(`Erro Resposta ID ${pergunta.id}: ${response.status}`);
-                    return;
+                    continue;
                 }
+
                 const dataResposta = await response.json();
                 if (dataResposta && dataResposta.respostas) {
                     gabarito[pergunta.id] = dataResposta.respostas;
                 } else {
                     console.warn(`Resposta inesperada ID ${pergunta.id}:`, dataResposta);
                 }
+
+                await delay(300); // Aumentei o delay entre respostas
+
             } catch (errorIndividual) {
                 console.error(`Fetch Resposta ID ${pergunta.id}:`, errorIndividual);
+                await delay(300);
             }
-        });
-        await Promise.all(promessasDeRespostas);
-        console.log("Gabarito carregado:", gabarito);
-        if (Object.keys(gabarito).length === 0) {
-            console.warn("Nenhuma resposta da API carregada.");
         }
+
+        console.log("Gabarito carregado:", gabarito);
+        if (Object.keys(gabarito).length !== listaDePerguntas.length) {
+            console.warn("Atenção: Nem todas as respostas foram carregadas com sucesso!");
+        }
+
     } catch (errorGeral) {
-        console.error("Falha geral ao buscar gabarito:", errorGeral);
+        console.error("Falha inesperada ao buscar gabarito:", errorGeral);
     }
 }
 
