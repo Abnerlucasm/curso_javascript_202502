@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hackathon Quiz</title>
+  <script defer src="hackaton.js"></script>
+<style>
+  body { font-family: Arial; display:flex; justify-content:center; align-items:center; flex-direction:column; min-height:100vh; margin:0; background:#f4f4f4; }
+  #quiz-container { background:white; padding:20px 30px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:400px; text-align:center; }
+  
+  button { 
+    background-color:#007bff; 
+    color:white; 
+    border:none; 
+    padding:10px 16px; 
+    margin-top:10px; 
+    border-radius:8px; 
+    cursor:pointer; 
+  }
+  button:hover { background-color:#0056b3; }
+
+ 
+  .option { 
+    display:block; 
+    background-color:#007bff;
+    color:white;
+    margin:8px 0; 
+    padding:12px; 
+    border-radius:8px; 
+    cursor:pointer; 
+    font-weight:bold;
+  }
+  .option:hover { background-color:#0056b3; }
+
+  #leaderboard { margin-top:20px; }
+  #leaderboard h3 { margin-bottom:10px; }
+  li { list-style:none; margin-bottom:5px; }
+</style>
+
+</head>
+<body>
+  <div id="quiz-container">
+    <h1>Quiz Interativo</h1>
+    <div id="start-screen">
+      <input type="text" id="player-name" placeholder="Digite seu nome" />
+      <button id="start-btn">Começar Quiz</button>
+    </div>
+
+    <div id="question-screen" style="display:none;">
+      <p id="question-text"></p>
+      <div id="options-container"></div>
+      <p id="progress"></p>
+    </div>
+
+    <div id="end-screen" style="display:none;">
+      <h2>Fim do Quiz!</h2>
+      <p id="score"></p>
+      <button id="restart-btn">Jogar Novamente</button>
+      <div id="leaderboard"></div>
+    </div>
+  </div>
+</body>
+</html>
