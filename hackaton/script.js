@@ -23,22 +23,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultTitle = document.getElementById('result-title');
     const resultText = document.getElementById('result-text');
   
-    // --- Função para trocar telas
+    // URL base (adicione a sua depois)
+    const apiUrlPerguntas = ''; 
+  
+    // --- Trocar telas
     function showScreen(el) {
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       el.classList.add('active');
     }
   
-    // --- Buscar perguntas da API 
-    async function fetchQuestions() {
-      try {
-        const res = await fetch('http://187.102.36.3:8091/api-docs/');
-        const data = await res.json();
+    // --- Buscar perguntas da API
+    async function buscarPerguntas(numeroDePerguntas = 5) {
+      const url = `${apiUrlPerguntas}/${numeroDePerguntas}`;
+      console.log(`🔍 Buscando ${numeroDePerguntas} perguntas da API...`);
   
-        // Ajuste aqui conforme os nomes das propriedades da API
-        QUESTIONS = data
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Erro na API de Perguntas: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        const listaDePerguntas = data.perguntas || data;
+        console.log("✅ Perguntas recebidas:", listaDePerguntas);
+  
+        // Converter para formato interno
+        QUESTIONS = listaDePerguntas
           .sort(() => 0.5 - Math.random())
-          .slice(0, 5)
+          .slice(0, numeroDePerguntas)
           .map(item => ({
             q: item.pergunta,
             choices: [item.opcaoA, item.opcaoB, item.opcaoC, item.opcaoD],
@@ -48,12 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
         answers = new Array(QUESTIONS.length).fill(null);
         totalEl.textContent = QUESTIONS.length;
         renderQuestion(index);
-      } catch (err) {
-        console.error(err);
-        alert('Erro ao buscar perguntas da API.');
+      } catch (error) {
+        console.error("❌ Falha ao carregar o quiz:", error);
+        alert("Não foi possível carregar as perguntas. Verifique o console (F12).");
       }
     }
   
+    // --- Renderizar questão
     function renderQuestion(i) {
       const item = QUESTIONS[i];
       currentEl.textContent = i + 1;
@@ -83,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       questionArea.appendChild(answersWrap);
     }
   
+    // --- Calcular pontuação
     function calcScore() {
       let acertos = 0;
       let erros = 0;
@@ -95,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return { acertos, erros };
     }
   
+    // --- Salvar pontuação
     function saveScore(name, score) {
       const key = 'quiz_leaderboard_v1';
       const raw = localStorage.getItem(key);
@@ -104,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(key, JSON.stringify(list.slice(0, 10)));
     }
   
+    // --- Carregar leaderboard
     function loadLeaderboard() {
       const raw = localStorage.getItem('quiz_leaderboard_v1');
       const list = raw ? JSON.parse(raw) : [];
@@ -112,17 +128,18 @@ document.addEventListener('DOMContentLoaded', () => {
         : '<li style="opacity:.6">Sem pontuações ainda.</li>';
     }
   
-    // --- Botão começar
+    // --- Botão iniciar
     btnStart.addEventListener('click', async () => {
       const val = nameInput.value.trim();
       if (!val) return alert('Digite seu nome para continuar.');
       playerName = val;
       showName.textContent = playerName;
       index = 0;
-      await fetchQuestions();
+      await buscarPerguntas(5); // busca 5 perguntas
       showScreen(screenQuiz);
     });
   
+    // --- Próxima
     btnNext.addEventListener('click', () => {
       if (index === QUESTIONS.length - 1) {
         const { acertos, erros } = calcScore();
@@ -137,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderQuestion(index);
     });
   
+    // --- Anterior
     btnPrev.addEventListener('click', () => {
       if (index > 0) {
         index--;
@@ -144,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
+    // --- Pular
     btnSkip.addEventListener('click', () => {
       if (index < QUESTIONS.length - 1) {
         index++;
@@ -158,18 +177,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
+    // --- Reiniciar
     btnRestart.addEventListener('click', async () => {
       index = 0;
-      await fetchQuestions();
+      await buscarPerguntas(5);
       showScreen(screenQuiz);
     });
   
+    // --- Voltar ao início
     btnBack.addEventListener('click', () => {
       nameInput.value = '';
       playerName = '';
       showScreen(screenName);
     });
   
+    // --- Carregar leaderboard inicial
     loadLeaderboard();
   });
   
