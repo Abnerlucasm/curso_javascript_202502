@@ -7,24 +7,30 @@ const inputNome = document.getElementById('input-nome');
 const quizContainer = document.getElementById('quiz-container');
 const spanAcertos = document.getElementById('pontos-acertos');
 const spanErros = document.getElementById('pontos-erros');
+const telaLogin = document.getElementById('login-container');
+const telaQuiz = document.getElementById('tela-quiz');
+const leaderboardDiv = document.getElementById('leaderboard');
+const leaderboardLista = document.getElementById('leaderboard-lista');
 
 let gabarito = {};
 let acertos = 0;
 let erros = 0;
+let nomeJogadorGlobal = "";
+let totalPerguntas = 0;
 
 function pegaNomeJogador() {
-    const nomeJogador = inputNome.value;
+    nomeJogadorGlobal = inputNome.value;
 
-    if (!nomeJogador.trim()) {
+    if (!nomeJogadorGlobal.trim()) {
         alert("Por favor, digite seu nome para começar!");
         return;
     }
 
-    console.log("Nome do Jogador:", nomeJogador);
+    console.log("Nome do Jogador:", nomeJogadorGlobal);
     inputNome.value = "";
 
-    inputNome.style.display = 'none';
-    document.querySelector('button[onclick="pegaNomeJogador()"]').style.display = 'none';
+    if (telaLogin) telaLogin.style.display = 'none';
+    if (telaQuiz) telaQuiz.style.display = 'block';
 
     buscarPerguntas(5);
 }
@@ -32,20 +38,23 @@ function pegaNomeJogador() {
 async function buscarPerguntas(numeroDePerguntas) {
     const url = `${apiUrlPerguntas}/${numeroDePerguntas}`;
     console.log(`Buscando ${numeroDePerguntas} perguntas da API...`);
+    totalPerguntas = 0;
+    acertos = 0;
+    erros = 0;
+    if (spanAcertos) spanAcertos.textContent = acertos;
+    if (spanErros) spanErros.textContent = erros;
 
     try {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Erro na API de Perguntas: ${response.status}`);
         }
-
         const data = await response.json();
         const listaDePerguntas = data.perguntas;
+        totalPerguntas = listaDePerguntas.length;
 
         console.log("Perguntas recebidas com sucesso:", listaDePerguntas);
-
         await buscarRespostas(listaDePerguntas);
-
         renderizarQuiz(listaDePerguntas);
 
     } catch (error) {
@@ -60,11 +69,7 @@ async function buscarPerguntas(numeroDePerguntas) {
 async function buscarRespostas(listaDePerguntas) {
     console.log("Buscando gabarito da API...");
     gabarito = {};
-
-    if (!listaDePerguntas || listaDePerguntas.length === 0) {
-        console.warn("Nenhuma pergunta fornecida para buscar respostas.");
-        return;
-    }
+    if (!listaDePerguntas || listaDePerguntas.length === 0) return;
 
     try {
         const promessasDeRespostas = listaDePerguntas.map(async (pergunta) => {
@@ -72,54 +77,44 @@ async function buscarRespostas(listaDePerguntas) {
             try {
                 const response = await fetch(urlResposta);
                 if (!response.ok) {
-                    console.error(`Erro ao buscar resposta para ID ${pergunta.id}: ${response.status}`);
-                    return null;
+                    console.error(`Erro Resposta ID ${pergunta.id}: ${response.status}`);
+                    return;
                 }
                 const dataResposta = await response.json();
-                if (dataResposta && dataResposta.respostas) { // Corrigido para 'respostas'
+                if (dataResposta && dataResposta.respostas) {
                     gabarito[pergunta.id] = dataResposta.respostas;
                 } else {
-                    console.warn(`Resposta inesperada (chave 'respostas' não encontrada) para ID ${pergunta.id}:`, dataResposta);
+                    console.warn(`Resposta inesperada ID ${pergunta.id}:`, dataResposta);
                 }
             } catch (errorIndividual) {
-                console.error(`Falha no fetch da resposta para ID ${pergunta.id}:`, errorIndividual);
+                console.error(`Fetch Resposta ID ${pergunta.id}:`, errorIndividual);
             }
         });
-
         await Promise.all(promessasDeRespostas);
-
-        console.log("Gabarito carregado da API:", gabarito);
-
+        console.log("Gabarito carregado:", gabarito);
         if (Object.keys(gabarito).length === 0) {
-            console.warn("Nenhuma resposta foi carregada da API. Verifique as URLs e o formato JSON.");
+            console.warn("Nenhuma resposta da API carregada.");
         }
-
     } catch (errorGeral) {
-        console.error("Falha geral ao buscar gabarito da API:", errorGeral);
-        alert("Não foi possível carregar o gabarito das respostas da API. Verifique o console.");
+        console.error("Falha geral ao buscar gabarito:", errorGeral);
     }
 }
 
 function renderizarQuiz(listaDePerguntas) {
     if (!quizContainer) return;
     quizContainer.innerHTML = '';
-
     if (listaDePerguntas.length === 0) {
         quizContainer.innerHTML = '<p>Nenhuma pergunta foi carregada.</p>';
         return;
     }
-
     listaDePerguntas.forEach(pergunta => {
         const blocoPergunta = document.createElement('div');
         blocoPergunta.id = `pergunta-${pergunta.id}`;
         blocoPergunta.className = 'pergunta-bloco';
-
         const textoPergunta = document.createElement('h3');
         textoPergunta.textContent = pergunta.pergunta;
-
         const listaOpcoes = document.createElement('ul');
         listaOpcoes.className = 'opcoes-lista';
-
         pergunta.opcoes.forEach(opcao => {
             const itemOpcao = document.createElement('li');
             itemOpcao.textContent = `${opcao.id}) ${opcao.texto}`;
@@ -127,7 +122,6 @@ function renderizarQuiz(listaDePerguntas) {
             itemOpcao.onclick = () => checarResposta(pergunta.id, opcao.id);
             listaOpcoes.appendChild(itemOpcao);
         });
-
         blocoPergunta.appendChild(textoPergunta);
         blocoPergunta.appendChild(listaOpcoes);
         quizContainer.appendChild(blocoPergunta);
@@ -139,8 +133,12 @@ function checarResposta(idPergunta, idOpcaoSelecionada) {
     const blocoPergunta = document.getElementById(`pergunta-${idPergunta}`);
 
     if (!respostaCorreta) {
-        console.warn(`Gabarito não disponível para a pergunta ID: ${idPergunta}. Não foi possível pontuar.`);
-        alert(`Não foi possível verificar a resposta para esta pergunta (ID: ${idPergunta}).`);
+        console.warn(`Gabarito indisponível ID ${idPergunta}.`);
+        alert(`Não foi possível verificar a resposta (ID: ${idPergunta}).`);
+        if (blocoPergunta && !blocoPergunta.classList.contains('respondida')) {
+            blocoPergunta.classList.add('respondida');
+        }
+        verificarFimDeJogo();
         return;
     }
     if (!blocoPergunta || blocoPergunta.classList.contains('respondida')) {
@@ -149,33 +147,119 @@ function checarResposta(idPergunta, idOpcaoSelecionada) {
 
     blocoPergunta.classList.add('respondida');
     const todasOpcoes = blocoPergunta.querySelectorAll('li');
+    let acertou = false;
 
     if (idOpcaoSelecionada === respostaCorreta) {
         acertos++;
-        spanAcertos.textContent = acertos;
-        todasOpcoes.forEach(li => {
-            if (li.textContent.startsWith(idOpcaoSelecionada)) {
-                li.style.backgroundColor = '#d4edda';
-                li.style.borderColor = '#c3e6cb';
-                li.style.fontWeight = 'bold';
-            }
-            li.style.cursor = 'default';
-            li.onclick = null;
-        });
+        if (spanAcertos) spanAcertos.textContent = acertos;
+        acertou = true;
     } else {
         erros++;
-        spanErros.textContent = erros;
-        todasOpcoes.forEach(li => {
-            if (li.textContent.startsWith(idOpcaoSelecionada)) {
-                li.style.backgroundColor = '#f8d7da';
-                li.style.borderColor = '#f5c6cb';
-            } else if (li.textContent.startsWith(respostaCorreta)) {
+        if (spanErros) spanErros.textContent = erros;
+    }
+
+    todasOpcoes.forEach(li => {
+        li.style.cursor = 'default';
+        li.onclick = null;
+        const opcaoId = li.textContent.substring(0, li.textContent.indexOf(')'));
+
+        if (opcaoId === idOpcaoSelecionada) {
+            if (acertou) {
                 li.style.backgroundColor = '#d4edda';
                 li.style.borderColor = '#c3e6cb';
                 li.style.fontWeight = 'bold';
+            } else {
+                li.style.backgroundColor = '#f8d7da';
+                li.style.borderColor = '#f5c6cb';
             }
-            li.style.cursor = 'default';
-            li.onclick = null;
-        });
+        } else if (opcaoId === respostaCorreta) {
+            li.style.backgroundColor = '#d4edda';
+            li.style.borderColor = '#c3e6cb';
+            li.style.fontWeight = 'bold';
+        } else {
+            li.style.opacity = '0.6';
+        }
+    });
+
+    verificarFimDeJogo();
+}
+
+function verificarFimDeJogo() {
+    const perguntasRespondidas = document.querySelectorAll('.pergunta-bloco.respondida').length;
+    console.log(`Perguntas respondidas: ${perguntasRespondidas} de ${totalPerguntas}`);
+
+    if (perguntasRespondidas === totalPerguntas && totalPerguntas > 0) {
+        console.log("Fim do Quiz!");
+        alert(`Quiz finalizado! Você acertou ${acertos} de ${totalPerguntas} perguntas.`);
+        salvarPontuacao(nomeJogadorGlobal, acertos);
+        renderizarLeaderboard();
+        if (leaderboardDiv) leaderboardDiv.style.display = 'block';
     }
 }
+
+function salvarPontuacao(nome, pontuacao) {
+    if (!nome) {
+        console.warn("Nome do jogador inválido, não salvando pontuação.");
+        return;
+    }
+    const leaderboardKey = "quizLeaderboard";
+    let scores = [];
+    try {
+        const scoresSalvos = localStorage.getItem(leaderboardKey);
+        if (scoresSalvos) {
+            scores = JSON.parse(scoresSalvos);
+            if (!Array.isArray(scores)) scores = [];
+        }
+    } catch (e) {
+        console.error("Erro ao ler leaderboard do localStorage:", e);
+        scores = [];
+    }
+
+    scores.push({ nome: nome, pontuacao: pontuacao });
+
+    try {
+        localStorage.setItem(leaderboardKey, JSON.stringify(scores));
+        console.log("Pontuação salva:", { nome, pontuacao });
+    } catch (e) {
+        console.error("Erro ao salvar leaderboard no localStorage:", e);
+    }
+}
+
+function carregarLeaderboard() {
+    const leaderboardKey = "quizLeaderboard";
+    let scores = [];
+    try {
+        const scoresSalvos = localStorage.getItem(leaderboardKey);
+        if (scoresSalvos) {
+            scores = JSON.parse(scoresSalvos);
+            if (!Array.isArray(scores)) scores = [];
+        }
+    } catch (e) {
+        console.error("Erro ao carregar leaderboard:", e);
+        scores = [];
+    }
+    return scores;
+}
+
+function renderizarLeaderboard() {
+    if (!leaderboardLista || !leaderboardDiv) return;
+
+    const scores = carregarLeaderboard();
+
+    scores.sort((a, b) => b.pontuacao - a.pontuacao);
+
+    leaderboardLista.innerHTML = '';
+
+    if (scores.length === 0) {
+        leaderboardLista.innerHTML = '<li>Nenhuma pontuação registrada ainda.</li>';
+    } else {
+        scores.forEach((score, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `${index + 1}. ${score.nome} - <strong>${score.pontuacao} Acertos</strong>`;
+            leaderboardLista.appendChild(li);
+        });
+    }
+    leaderboardDiv.style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', renderizarLeaderboard);
