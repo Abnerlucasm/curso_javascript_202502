@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Dinâmico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="welcome" class="screen">
+            <h1>Quiz Dinâmico</h1>
+            <input type="text" id="playerName" placeholder="Digite seu nome">
+            <button id="startBtn">Iniciar Quiz</button>
+        </div>
+        
+        <div id="luckMessage" class="screen hidden">
+            <h2 id="luckText"></h2>
+        </div>
+        
+        <div id="quiz" class="screen hidden">
+            <div id="progress">Pergunta <span id="currentQuestion">1</span> de 5</div>
+            <div id="timer">Tempo: <span id="timeLeft">10</span>s</div>
+            <div id="questionContainer">
+                <h3 id="question"></h3>
+                <div id="options"></div>
+                <button id="helpBtn">Ajuda (Eliminar 2 incorretas)</button>
+                <div id="feedback" class="hidden"></div>
+            </div>
+            <div id="score">Acertos: <span id="correctCount">0</span> | Erros: <span id="wrongCount">0</span> | Pontuação: <span id="points">0</span></div>
+        </div>
+        
+        <div id="end" class="screen hidden">
+            <h2>Fim do Quiz!</h2>
+            <p>Pontuação Final: <span id="finalPoints"></span></p>
+            <button id="playAgainBtn">Jogar Novamente</button>
+        </div>
+        
+        <div id="leaderboard" class="screen">
+            <h2>Leaderboard</h2>
+            <ul id="leaderList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
